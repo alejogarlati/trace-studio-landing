@@ -31,14 +31,15 @@ export default function Hero() {
           className="liquid-glass px-6 py-12 sm:px-12 sm:py-16 w-full"
         >
           <h1 className="font-display text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[var(--text-primary)] leading-[1.1] max-w-3xl mx-auto">
-            Hacemos el software que tu empresa necesita para trabajar sin
-            trabas.
+            Desarrollo de software a medida y automatización para la operación
+            de su empresa.
           </h1>
 
           <p className="mt-6 text-base sm:text-lg text-[var(--text-secondary)] max-w-2xl mx-auto leading-relaxed">
-            Si tu equipo pierde horas pasando datos a mano entre planillas, o
-            los sistemas enlatados no se adaptan a tu forma de vender, armamos
-            la herramienta exacta para tu operación. De punta a punta.
+            Diseñamos y construimos sistemas adaptados a sus procesos comerciales
+            y logísticos. Reemplazamos la gestión dispersa en planillas y las
+            limitaciones del software estándar por herramientas desarrolladas
+            para su flujo real de trabajo.
           </p>
 
           {/* Rounded Capsule CTAs */}
@@ -47,14 +48,14 @@ export default function Hero() {
               href="#cotizador"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-[#11ffa1] hover:bg-[#00e58d] text-[#08080a] font-semibold text-sm shadow-[0_0_25px_rgba(17,255,161,0.3)] transition-all"
             >
-              Contanos qué necesitás resolver
+              Solicitar diagnóstico operativo
               <ArrowRight className="w-4 h-4" />
             </a>
             <a
               href="#casos"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full liquid-pill text-[var(--text-primary)] hover:border-[#11ffa1]/40 font-medium text-sm transition-all"
             >
-              Ver trabajos reales
+              Ver casos de desarrollo
             </a>
           </div>
         </motion.div>

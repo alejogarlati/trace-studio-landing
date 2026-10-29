@@ -25,11 +25,11 @@ const CASE_STUDIES: CaseStudy[] = [
     id: "corralon-aconquija",
     number: "01",
     client: "Corralón Aconquija S.R.L",
-    sector: "Materiales de construcción · Mayorista y minorista",
+    sector: "Distribución de materiales de construcción · Venta mayorista y minorista",
     summary:
-      "Manejaban miles de artículos con listas de precios distintas por proveedor y el stock de la tienda online quedaba desfasado del mostrador.",
+      "Administraban miles de artículos con listas de precios heterogéneas por proveedor, provocando desfasajes entre el inventario del depósito y el catálogo digital.",
     workDone:
-      "Armamos herramientas automáticas para limpiar listas masivas, recalcular precios en segundos y mantener la tienda online al día sin cargar producto por producto.",
+      "Desarrollamos herramientas automatizadas para la normalización de listas masivas, recálculo de precios y sincronización continua con la tienda online.",
     pngPath: "/images/casos/caso-01.png",
     pngLabel: "Gráfica PNG · Caso Corralón Aconquija",
     metrics: [
@@ -39,11 +39,11 @@ const CASE_STUDIES: CaseStudy[] = [
       },
       {
         value: "-90%",
-        label: "Menos tiempo actualizando precios",
+        label: "Tiempo invertido en actualización",
       },
       {
-        value: "Al día",
-        label: "Catálogo online sincronizado con depósito",
+        value: "Tiempo real",
+        label: "Sincronización entre inventario y web",
       },
     ],
   },
@@ -51,25 +51,25 @@ const CASE_STUDIES: CaseStudy[] = [
     id: "soluciones-proyectables",
     number: "02",
     client: "Soluciones Proyectables S.R.L",
-    sector: "Construcción y obras civiles",
+    sector: "Construcción e ingeniería civil",
     summary:
-      "Necesitaban una presencia institucional seria que mostrara la escala de sus obras y sirviera de respaldo al presentarse en licitaciones y proyectos privados.",
+      "Requerían una plataforma web corporativa que reflejara la escala de sus obras y funcionara como respaldo institucional en licitaciones y proyectos privados.",
     workDone:
-      "Diseñamos y desarrollamos su sitio web corporativo desde cero, priorizando velocidad de carga en celulares, claridad en los servicios y contacto directo.",
+      "Diseñamos y desarrollamos el sitio web institucional bajo estándares de alto rendimiento, estructurando el catálogo de obras y optimizando el canal de cotizaciones.",
     pngPath: "/images/casos/caso-02.png",
     pngLabel: "Gráfica PNG · Caso Soluciones Proyectables",
     metrics: [
       {
-        value: "Instantánea",
-        label: "Apertura en celulares y escritorio",
+        value: "Alto rendimiento",
+        label: "Carga optimizada en móvil y escritorio",
       },
       {
-        value: "100%",
-        label: "Hecho a medida de su identidad",
+        value: "100% personalizada",
+        label: "Arquitectura desarrollada para su identidad",
       },
       {
-        value: "Directo",
-        label: "Canal comercial para presupuestos de obra",
+        value: "Canal directo",
+        label: "Recepción de solicitudes de presupuesto",
       },
     ],
   },
@@ -77,25 +77,25 @@ const CASE_STUDIES: CaseStudy[] = [
     id: "sistema-erp",
     number: "03",
     client: "Sistema de Gestión Operativa (ERP)",
-    sector: "Administración interna y control de stock",
+    sector: "Administración comercial y control de inventario",
     summary:
-      "La operación diaria dependía de planillas sueltas: costaba seguir los saldos pendientes y ver con claridad quién había movido mercadería.",
+      "La gestión operativa dependía de archivos desconectados, lo que dificultaba el seguimiento de saldos y la trazabilidad de los movimientos de mercadería.",
     workDone:
-      "Construimos un sistema web propio con base de datos unificada, control de caja, movimientos de stock y accesos separados para administración, ventas y depósito.",
+      "Construimos un sistema web centralizado con base de datos unificada, módulos de facturación, caja, control de stock y accesos diferenciados por área.",
     pngPath: "/images/casos/caso-03.png",
     pngLabel: "Gráfica PNG · Caso Sistema ERP",
     metrics: [
       {
-        value: "Unificado",
-        label: "Stock, caja y pedidos en un solo lugar",
+        value: "Centralizado",
+        label: "Inventario, cobranzas y pedidos unificados",
       },
       {
-        value: "Por rol",
-        label: "Permisos separados para cada empleado",
+        value: "Seguridad por rol",
+        label: "Permisos y auditoría por puesto de trabajo",
       },
       {
-        value: "$0",
-        label: "Costo mensual en licencias de terceros",
+        value: "$0 licencias",
+        label: "Propiedad total sin abonos recurrentes por usuario",
       },
     ],
   },
@@ -137,11 +137,11 @@ export default function CaseStudiesSlider() {
                 style={{ background: "var(--color-accent)" }}
               />
               <span style={{ color: "var(--color-accent-text)" }}>
-                03 · TRABAJOS REALES
+                03 · CASOS DE DESARROLLO
               </span>
             </div>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[var(--text-primary)] leading-[1.12]">
-              Proyectos concretos hechos para empresas de acá.
+              Proyectos implementados y resultados operativos.
             </h2>
           </div>
 
@@ -221,7 +221,7 @@ export default function CaseStudiesSlider() {
                 <div className="space-y-4">
                   <div className="p-4 liquid-glass-subtle">
                     <span className="text-[11px] font-mono uppercase tracking-wider text-[var(--text-muted)] block mb-1">
-                      Con qué se encontraban
+                      Situación inicial
                     </span>
                     <p className="text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed">
                       {currentCase.summary}
@@ -233,7 +233,7 @@ export default function CaseStudiesSlider() {
                       className="text-[11px] font-mono uppercase tracking-wider block mb-1"
                       style={{ color: "var(--color-accent-text)" }}
                     >
-                      Qué armamos
+                      Solución implementada
                     </span>
                     <p className="text-sm sm:text-base text-[var(--text-primary)] leading-relaxed">
                       {currentCase.workDone}
@@ -266,7 +266,7 @@ export default function CaseStudiesSlider() {
                     href="#cotizador"
                     className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full liquid-pill text-xs font-medium text-[var(--text-primary)] hover:border-[#11ffa1]/40 transition-all"
                   >
-                    Necesito algo parecido
+                    Solicitar una solución similar
                     <ArrowUpRight
                       className="w-3.5 h-3.5"
                       style={{ color: "var(--color-accent-text)" }}

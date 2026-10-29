@@ -19,32 +19,32 @@ import {
 const STEP_1_OPTIONS = [
   {
     id: "gestion",
-    label: "Un sistema interno hecho a medida",
-    description: "Control de stock, pedidos, caja, cuentas corrientes y usuarios.",
+    label: "Sistema de gestión interna a medida (ERP)",
+    description: "Control de inventario, pedidos, facturación, cuentas corrientes y logística.",
     icon: Layers,
   },
   {
     id: "datos",
-    label: "Ordenar números y ver tableros de ganancia real",
-    description: "Dejar de cruzar Excels a mano y tener métricas al día.",
+    label: "Consolidación de datos y tableros analíticos (BI)",
+    description: "Centralización de métricas comerciales y márgenes netos en tiempo real.",
     icon: BarChart2,
   },
   {
     id: "automatizacion",
-    label: "Automatizar listas de precios o sincronizar stock",
-    description: "Conectar proveedores, depósito y tienda online sin carga manual.",
+    label: "Automatización de procesos y sincronización de datos",
+    description: "Integración de listas de precios, stock y canales de venta sin intervención manual.",
     icon: Workflow,
   },
   {
     id: "web",
-    label: "Sitio web empresarial o catálogo digital",
-    description: "Una web rápida y seria para mostrar lo que hacés y recibir consultas.",
+    label: "Plataforma web institucional o catálogo digital",
+    description: "Arquitectura web corporativa optimizada para velocidad y captación comercial.",
     icon: Globe,
   },
   {
     id: "diagnostico",
-    label: "Todavía no sé bien, quiero charlarlo",
-    description: "Vemos juntos dónde se está perdiendo tiempo en la operación.",
+    label: "Evaluación y diagnóstico general",
+    description: "Relevamiento conjunto de los procesos y necesidades técnicas de la empresa.",
     icon: HelpCircle,
   },
 ];
@@ -52,41 +52,41 @@ const STEP_1_OPTIONS = [
 const STEP_2_OPTIONS = [
   {
     id: "empezando",
-    label: "Estamos empezando a ordenar los procesos",
-    description: "Queremos armar una base prolija desde ahora.",
+    label: "Estructurando y formalizando procesos",
+    description: "Buscamos implementar una base tecnológica sólida desde el inicio.",
   },
   {
     id: "excel-saturado",
-    label: "Nos manejamos con Excel pero ya nos quedó chico",
-    description: "Hay demasiadas planillas dando vueltas y se cometen errores.",
+    label: "Gestión basada en planillas que resultan insuficientes",
+    description: "Inconsistencias y demoras por dispersión de archivos entre áreas.",
   },
   {
     id: "enlatado-limitado",
-    label: "Tenemos un sistema enlatado pero no se adapta a nosotros",
-    description: "Pagamos por funciones que no usamos o nos faltan cosas clave.",
+    label: "Sistema estándar rígido que no se adapta a la operación",
+    description: "Costos de licencias por usuario y funciones que no cubren los requerimientos.",
   },
   {
     id: "automatizar-canales",
-    label: "Ya vendemos bien pero perdemos mucho tiempo operativo",
-    description: "Queremos agilizar tareas repetitivas del equipo.",
+    label: "Operación comercial activa con sobrecarga administrativa",
+    description: "Necesidad de optimizar tareas repetitivas y sincronizar información.",
   },
 ];
 
 const STEP_3_OPTIONS = [
   {
     id: "urgente",
-    label: "Lo antes posible (1 a 4 semanas)",
-    description: "Tenemos una traba hoy y queremos resolverla rápido.",
+    label: "Inmediato (1 a 4 semanas)",
+    description: "Requerimiento operativo para resolver en el corto plazo.",
   },
   {
     id: "medio-plazo",
-    label: "En los próximos 2 a 3 meses",
-    description: "Para ir implementándolo por etapas sin apuro.",
+    label: "Planificado (2 a 3 meses)",
+    description: "Implementación por fases y despliegue programado.",
   },
   {
     id: "explorando",
-    label: "Estoy averiguando opciones y presupuestos",
-    description: "Quiero tener una idea clara de costos y tiempos.",
+    label: "Evaluación técnica y presupuestaria",
+    description: "Relevamiento de alcances, especificaciones técnicas y costos.",
   },
 ];
 
@@ -205,15 +205,15 @@ export default function InteractiveWizard() {
               style={{ background: "var(--color-accent)" }}
             />
             <span style={{ color: "var(--color-accent-text)" }}>
-              06 · CONTANOS TU CASO
+              06 · DIAGNÓSTICO Y COTIZACIÓN
             </span>
           </div>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[var(--text-primary)] leading-[1.12]">
-            Armemos una propuesta para tu negocio.
+            Solicitar propuesta técnica y económica
           </h2>
           <p className="mt-4 text-base sm:text-lg text-[var(--text-secondary)] leading-relaxed">
-            Elegí tres opciones rápidas para ubicarnos en tema y coordinamos una
-            charla corta de 15 minutos.
+            Seleccione las características de su requerimiento para coordinar
+            una reunión de evaluación inicial.
           </p>
         </div>
 
@@ -264,7 +264,7 @@ export default function InteractiveWizard() {
                 {step === 1 && (
                   <div className="space-y-6">
                     <h3 className="font-display text-xl sm:text-2xl font-bold text-[var(--text-primary)]">
-                      1. ¿Qué estás buscando resolver hoy?
+                      1. ¿Qué requerimiento operativo busca resolver?
                     </h3>
 
                     <div className="grid grid-cols-1 gap-3">
@@ -332,7 +332,7 @@ export default function InteractiveWizard() {
                 {step === 2 && (
                   <div className="space-y-6">
                     <h3 className="font-display text-xl sm:text-2xl font-bold text-[var(--text-primary)]">
-                      2. ¿Con qué situación te sentís más identificado?
+                      2. ¿Cuál describe mejor la situación actual de su empresa?
                     </h3>
 
                     <div className="grid grid-cols-1 gap-3">
@@ -396,7 +396,7 @@ export default function InteractiveWizard() {
                 {step === 3 && (
                   <div className="space-y-6">
                     <h3 className="font-display text-xl sm:text-2xl font-bold text-[var(--text-primary)]">
-                      3. ¿Para cuándo te gustaría tenerlo resuelto?
+                      3. ¿En qué plazo estima iniciar la implementación?
                     </h3>
 
                     <div className="grid grid-cols-1 gap-3">
@@ -460,7 +460,7 @@ export default function InteractiveWizard() {
                 {step === 4 && (
                   <form onSubmit={handleFormSubmit} className="space-y-6">
                     <h3 className="font-display text-xl sm:text-2xl font-bold text-[var(--text-primary)]">
-                      4. Dejanos tus datos para responderte hoy mismo
+                      4. Ingrese los datos de contacto de su empresa
                     </h3>
 
                     {/* Summary Box */}
@@ -469,24 +469,24 @@ export default function InteractiveWizard() {
                         className="font-mono uppercase tracking-wider mb-1"
                         style={{ color: "var(--color-accent-text)" }}
                       >
-                        LO QUE ELEGISTE:
+                        REQUERIMIENTO SELECCIONADO:
                       </div>
                       <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-[var(--text-secondary)]">
                         <div>
                           <strong className="text-[var(--text-primary)] block">
-                            Necesidad:
+                            Solución requerida:
                           </strong>
                           {solutionObj.label}
                         </div>
                         <div>
                           <strong className="text-[var(--text-primary)] block">
-                            Situación:
+                            Situación actual:
                           </strong>
                           {situationObj.label}
                         </div>
                         <div>
                           <strong className="text-[var(--text-primary)] block">
-                            Plazo:
+                            Plazo estimado:
                           </strong>
                           {timelineObj.label}
                         </div>
@@ -500,7 +500,7 @@ export default function InteractiveWizard() {
                           htmlFor="wizard-name"
                           className="block text-xs font-mono uppercase tracking-wider text-[var(--text-secondary)] mb-2"
                         >
-                          Tu nombre *
+                          Nombre y apellido *
                         </label>
                         <input
                           id="wizard-name"
@@ -518,7 +518,7 @@ export default function InteractiveWizard() {
                           htmlFor="wizard-company"
                           className="block text-xs font-mono uppercase tracking-wider text-[var(--text-secondary)] mb-2"
                         >
-                          Empresa o rubro *
+                          Empresa o razón social *
                         </label>
                         <input
                           id="wizard-company"
@@ -526,7 +526,7 @@ export default function InteractiveWizard() {
                           required
                           value={company}
                           onChange={(e) => setCompany(e.target.value)}
-                          placeholder="Ej. Distribuidora Norte"
+                          placeholder="Ej. Distribuidora Norte S.R.L."
                           className="w-full px-4 py-3.5 liquid-glass-subtle focus:border-[#11ffa1] focus:outline-none text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)]"
                         />
                       </div>
@@ -537,7 +537,7 @@ export default function InteractiveWizard() {
                         htmlFor="wizard-contact"
                         className="block text-xs font-mono uppercase tracking-wider text-[var(--text-secondary)] mb-2"
                       >
-                        Tu WhatsApp o correo *
+                        Teléfono / WhatsApp o correo electrónico corporativo *
                       </label>
                       <input
                         id="wizard-contact"
@@ -545,7 +545,7 @@ export default function InteractiveWizard() {
                         required
                         value={contact}
                         onChange={(e) => setContact(e.target.value)}
-                        placeholder="Ej. 381 ... o correo@empresa.com"
+                        placeholder="Ej. +54 381 ... o contacto@empresa.com"
                         className="w-full px-4 py-3.5 liquid-glass-subtle focus:border-[#11ffa1] focus:outline-none text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)]"
                       />
                     </div>
@@ -555,15 +555,14 @@ export default function InteractiveWizard() {
                         htmlFor="wizard-challenge"
                         className="block text-xs font-mono uppercase tracking-wider text-[var(--text-secondary)] mb-2"
                       >
-                        Si querés, contanos en una línea qué buscan mejorar
-                        (Opcional)
+                        Detalles adicionales sobre el requerimiento (Opcional)
                       </label>
                       <textarea
                         id="wizard-challenge"
                         rows={2}
                         value={challenge}
                         onChange={(e) => setChallenge(e.target.value)}
-                        placeholder="Ej. Queremos unificar el stock de dos locales y actualizar listas de proveedores sin hacerlo a mano..."
+                        placeholder="Ej. Requerimos centralizar el inventario de múltiples sucursales y conectar listas de proveedores..."
                         className="w-full px-4 py-3.5 liquid-glass-subtle focus:border-[#11ffa1] focus:outline-none text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)] resize-none"
                       />
                     </div>
@@ -587,14 +586,14 @@ export default function InteractiveWizard() {
                           style={{ color: "var(--color-accent-text)" }}
                         >
                           <MessageSquare className="w-4 h-4" />
-                          Mandar directo por WhatsApp
+                          Enviar vía WhatsApp
                         </a>
 
                         <button
                           type="submit"
                           className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#11ffa1] hover:bg-[#00e58d] text-[#08080a] font-semibold text-sm shadow-[0_0_25px_rgba(17,255,161,0.25)] transition-all cursor-pointer"
                         >
-                          Armar resumen
+                          Generar solicitud
                           <Send className="w-4 h-4" />
                         </button>
                       </div>
@@ -618,18 +617,17 @@ export default function InteractiveWizard() {
 
                 <div className="space-y-2 max-w-lg mx-auto">
                   <h3 className="font-display text-2xl sm:text-3xl font-bold text-[var(--text-primary)]">
-                    ¡Listo el resumen para {company || "tu negocio"}!
+                    Solicitud preparada para {company || "su empresa"}
                   </h3>
                   <p className="text-sm sm:text-base text-[var(--text-secondary)]">
-                    Elegí si preferís mandármelo ahora por WhatsApp o por
-                    correo electrónico con un solo clic:
+                    Seleccione el canal de su preferencia para enviar la información al equipo técnico:
                   </p>
                 </div>
 
                 <div className="max-w-lg mx-auto p-5 liquid-glass-subtle text-left text-xs sm:text-sm space-y-2">
                   <div>
                     <span className="text-[var(--text-secondary)]">
-                      Nombre:{" "}
+                      Contacto:{" "}
                     </span>
                     <strong className="text-[var(--text-primary)]">
                       {name} ({company})
@@ -637,7 +635,7 @@ export default function InteractiveWizard() {
                   </div>
                   <div>
                     <span className="text-[var(--text-secondary)]">
-                      Contacto:{" "}
+                      Medio de contacto:{" "}
                     </span>
                     <strong style={{ color: "var(--color-accent-text)" }}>
                       {contact}
@@ -645,7 +643,7 @@ export default function InteractiveWizard() {
                   </div>
                   <div>
                     <span className="text-[var(--text-secondary)]">
-                      Necesidad:{" "}
+                      Requerimiento:{" "}
                     </span>
                     <span className="text-[var(--text-primary)]">
                       {solutionObj.label}
@@ -661,7 +659,7 @@ export default function InteractiveWizard() {
                     className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-[#11ffa1] hover:bg-[#00e58d] text-[#08080a] font-semibold text-sm shadow-[0_0_25px_rgba(17,255,161,0.3)] transition-all"
                   >
                     <MessageSquare className="w-4 h-4" />
-                    Abrir en WhatsApp
+                    Enviar vía WhatsApp
                   </a>
 
                   <a
@@ -672,7 +670,7 @@ export default function InteractiveWizard() {
                       className="w-4 h-4"
                       style={{ color: "var(--color-accent-text)" }}
                     />
-                    Mandar por Correo
+                    Enviar por Correo Electrónico
                   </a>
                 </div>
 
@@ -683,7 +681,7 @@ export default function InteractiveWizard() {
                     className="inline-flex items-center gap-1.5 text-xs font-mono text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors cursor-pointer"
                   >
                     <RotateCcw className="w-3.5 h-3.5" />
-                    Cambiar respuestas
+                    Modificar respuestas
                   </button>
                 </div>
               </motion.div>

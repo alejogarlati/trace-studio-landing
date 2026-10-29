@@ -23,8 +23,8 @@ export default function Footer() {
             </a>
 
             <p className="text-sm text-[var(--text-secondary)] max-w-sm leading-relaxed">
-              Software a medida, automatizaciones y datos para empresas que
-              quieren trabajar con orden y sin perder tiempo en tareas manuales.
+              Desarrollo de software a medida, automatización e inteligencia de
+              datos para empresas orientadas a la eficiencia operativa.
             </p>
           </div>
 
@@ -42,7 +42,7 @@ export default function Footer() {
                   href="#problemas"
                   className="hover:text-[var(--text-primary)] transition-colors"
                 >
-                  Qué resolvemos
+                  Desafíos operativos
                 </a>
               </li>
               <li>
@@ -50,7 +50,7 @@ export default function Footer() {
                   href="#soluciones"
                   className="hover:text-[var(--text-primary)] transition-colors"
                 >
-                  Soluciones
+                  Áreas de desarrollo
                 </a>
               </li>
               <li>
@@ -58,7 +58,7 @@ export default function Footer() {
                   href="#casos"
                   className="hover:text-[var(--text-primary)] transition-colors"
                 >
-                  Trabajos reales
+                  Casos de estudio
                 </a>
               </li>
               <li>
@@ -66,7 +66,7 @@ export default function Footer() {
                   href="#proceso"
                   className="hover:text-[var(--text-primary)] transition-colors"
                 >
-                  Cómo trabajamos
+                  Metodología de trabajo
                 </a>
               </li>
               <li>
@@ -74,7 +74,7 @@ export default function Footer() {
                   href="#estudio"
                   className="hover:text-[var(--text-primary)] transition-colors"
                 >
-                  Sobre el estudio
+                  Propuesta institucional
                 </a>
               </li>
             </ul>

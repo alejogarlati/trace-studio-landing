@@ -1,172 +1,265 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useRef, useEffect } from "react";
 import { Compass, PenTool, Layers, Rocket } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const TRACE_STEPS = [
   {
     number: "01",
-    title: "Nos sentamos a entender tu operación",
-    subtitle: "Relevamiento real",
+    title: "Diagnóstico y relevamiento operativo",
+    subtitle: "Análisis inicial",
     description:
-      "Vemos cómo trabajan hoy, dónde se traban los pedidos o las planillas y qué es lo primero que conviene ordenar. Te pasamos una propuesta concreta con alcance y valor cerrado.",
+      "Analizamos los procesos actuales, identificamos los puntos críticos de la operación y elaboramos una propuesta técnica con alcance, cronograma y presupuesto definidos.",
     icon: Compass,
   },
   {
     number: "02",
-    title: "Armamos el esquema de pantallas",
-    subtitle: "Diseño práctico",
+    title: "Arquitectura y diseño funcional",
+    subtitle: "Estructura y flujos",
     description:
-      "Antes de programar, definimos cómo se va a ver y usar cada pantalla para que sea cómoda y rápida para la gente que trabaja todos los días en el negocio.",
+      "Diseñamos la estructura de datos y las interfaces de usuario antes del desarrollo, priorizando la ergonomía y la velocidad de operación del personal.",
     icon: PenTool,
   },
   {
     number: "03",
-    title: "Construimos mostrando avances reales",
-    subtitle: "Entregas por etapas",
+    title: "Desarrollo e iteración continua",
+    subtitle: "Entregas graduales",
     description:
-      "No desaparecemos tres meses. Vamos armando el sistema por partes funcionales y te las mostramos semana a semana para que las pruebes y ajustemos a tiempo.",
+      "Construimos el software mediante entregas parciales funcionales con revisiones periódicas, permitiendo validar cada módulo antes del despliegue final.",
     icon: Layers,
   },
   {
     number: "04",
-    title: "Lo dejamos andando con tu equipo",
+    title: "Despliegue y capacitación",
     subtitle: "Puesta en marcha",
     description:
-      "Ponemos el sistema en marcha, le explicamos paso a paso a tu gente cómo usarlo sin complicarse y quedamos a disposición para acompañarte.",
+      "Realizamos la puesta en producción, capacitamos al equipo en el uso de la herramienta y brindamos soporte técnico continuo.",
     icon: Rocket,
   },
 ];
 
 export default function ProcessTimeline() {
-  const [activeStep, setActiveStep] = useState<number>(3);
+  const pinWrapperRef = useRef<HTMLDivElement>(null);
+  const [activeStep, setActiveStep] = useState<number>(0);
+  const itemsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const progressBarRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const pinWrapper = pinWrapperRef.current;
+    if (!pinWrapper) return;
+
+    const ctx = gsap.context(() => {
+      const items = itemsRef.current.filter(Boolean);
+      const totalSteps = TRACE_STEPS.length;
+
+      // Estado inicial: primer ítem visible; los siguientes abajo y ocultos
+      items.forEach((item, i) => {
+        if (!item) return;
+        if (i === 0) {
+          gsap.set(item, {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            filter: "blur(0px)",
+            pointerEvents: "auto",
+          });
+        } else {
+          gsap.set(item, {
+            opacity: 0,
+            y: 75,
+            scale: 0.96,
+            filter: "blur(6px)",
+            pointerEvents: "none",
+          });
+        }
+      });
+
+      // Pin exclusivo para el contenedor del carrusel y la barra (el claim scrollea libre)
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: pinWrapper,
+          start: "top 22%",
+          end: "+=2000",
+          pin: true,
+          pinSpacing: true,
+          scrub: 0.6,
+          anticipatePin: 1,
+          snap: {
+            snapTo: (value) => {
+              const stepFraction = 1 / (totalSteps - 1);
+              return Math.round(value / stepFraction) * stepFraction;
+            },
+            duration: { min: 0.2, max: 0.4 },
+            ease: "power2.out",
+          },
+          onUpdate: (self) => {
+            const p = self.progress;
+            const stepIndex = Math.min(
+              totalSteps - 1,
+              Math.max(0, Math.round(p * (totalSteps - 1)))
+            );
+            setActiveStep(stepIndex);
+
+            if (progressBarRef.current) {
+              progressBarRef.current.style.width = `${Math.min(
+                100,
+                Math.max(0, p * 100)
+              )}%`;
+            }
+          },
+        },
+      });
+
+      // Transiciones verticales tipo carrusel entre ítems (alineados a la izquierda)
+      for (let i = 0; i < totalSteps - 1; i++) {
+        const currentItem = items[i];
+        const nextItem = items[i + 1];
+
+        tl.to(
+          currentItem,
+          {
+            y: -75,
+            opacity: 0,
+            scale: 0.96,
+            filter: "blur(6px)",
+            pointerEvents: "none",
+            duration: 1,
+            ease: "power2.inOut",
+          },
+          `step-${i}`
+        );
+
+        tl.to(
+          nextItem,
+          {
+            y: 0,
+            opacity: 1,
+            scale: 1,
+            filter: "blur(0px)",
+            pointerEvents: "auto",
+            duration: 1,
+            ease: "power2.inOut",
+          },
+          `step-${i}`
+        );
+      }
+    }, pinWrapperRef);
+
+    return () => {
+      ctx.revert();
+    };
+  }, []);
 
   return (
-    <section id="proceso" className="relative py-24 sm:py-32 px-6 overflow-hidden">
+    <section
+      id="proceso"
+      className="relative py-24 sm:py-32 px-6 overflow-visible"
+    >
       {/* Circular Ambient Orb */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[580px] h-[580px] rounded-full blur-[150px] pointer-events-none"
+        className="absolute top-1/3 left-10 w-[600px] h-[600px] rounded-full blur-[160px] pointer-events-none"
         style={{ background: "var(--orb-primary)" }}
         aria-hidden="true"
       />
 
-      <div className="relative z-10 max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="max-w-3xl mb-14">
+      <div className="relative z-10 max-w-5xl mx-auto w-full">
+        {/* Header Superior: Claim y Subclaim alineados a la izquierda (Scrollean libremente) */}
+        <div className="max-w-3xl mb-14 sm:mb-16 text-left">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full liquid-pill text-xs font-mono mb-4">
             <span
               className="w-2 h-2 rounded-full"
               style={{ background: "var(--color-accent)" }}
             />
             <span style={{ color: "var(--color-accent-text)" }}>
-              04 · CÓMO TRABAJAMOS (EL TRAZADO)
+              04 · METODOLOGÍA DE TRABAJO
             </span>
           </div>
+
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[var(--text-primary)] leading-[1.12]">
-            Un camino derecho desde la idea hasta el sistema andando.
+            Un proceso estructurado desde el diagnóstico hasta la puesta en
+            producción.
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-[var(--text-secondary)] leading-relaxed">
-            Por eso nos llamamos{" "}
-            <strong className="text-[var(--text-primary)] font-medium">
-              Trace
-            </strong>
-            : trazamos una ruta corta y ordenada para que sepas en todo momento
-            qué estamos haciendo y cuándo va a estar listo.
+          <p className="mt-4 text-base sm:text-lg text-[var(--text-secondary)] leading-relaxed max-w-2xl">
+            Definimos etapas claras y entregas por módulos funcionales para
+            garantizar previsibilidad en plazos, costos y resultados.
           </p>
         </div>
 
-        {/* Horizontal Circular Nodes Connector (Desktop) */}
-        <div className="hidden lg:block relative mb-10 px-10">
-          <div className="h-[2px] w-full bg-[var(--glass-border)] rounded-full overflow-hidden">
-            <motion.div
-              className="h-full bg-[#11ffa1] shadow-[0_0_15px_#11ffa1]"
-              initial={{ width: "25%" }}
-              animate={{
-                width: `${((activeStep + 1) / TRACE_STEPS.length) * 100}%`,
-              }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-            />
+        {/* Contenedor Fijo (Pinned Wrapper): Barra y carrusel alineados a la izquierda */}
+        <div
+          ref={pinWrapperRef}
+          className="relative max-w-4xl w-full py-4 flex flex-col items-start"
+        >
+          {/* Barra de Progreso Continua con Marcadores alineada a la izquierda */}
+          <div className="w-full max-w-xl mb-12 sm:mb-16">
+            <div className="relative h-[2px] w-full bg-[var(--glass-border)] rounded-full">
+              <div
+                ref={progressBarRef}
+                className="absolute left-0 top-0 h-full bg-[#11ffa1] shadow-[0_0_15px_#11ffa1] rounded-full"
+                style={{ width: "0%" }}
+              />
+              <div className="absolute inset-0 flex justify-between items-center -top-[3px]">
+                {TRACE_STEPS.map((_, i) => (
+                  <span
+                    key={i}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      i <= activeStep
+                        ? "bg-[#11ffa1] shadow-[0_0_8px_#11ffa1] scale-125"
+                        : "bg-[var(--glass-border)] scale-100"
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
 
-          <div className="grid grid-cols-4 -mt-3.5">
+          {/* Escenario del Carrusel Vertical Alineado a la Izquierda (Sin Caja) */}
+          <div className="relative w-full h-[340px] sm:h-[300px] flex items-center justify-start">
             {TRACE_STEPS.map((step, index) => {
-              const isReached = index <= activeStep;
+              const Icon = step.icon;
               return (
-                <div key={step.number} className="flex items-center">
-                  <button
-                    type="button"
-                    onClick={() => setActiveStep(index)}
-                    onMouseEnter={() => setActiveStep(index)}
-                    className={`w-7 h-7 rounded-full liquid-pill flex items-center justify-center transition-all cursor-pointer ${
-                      isReached ? "border-[#11ffa1]" : ""
-                    }`}
-                    aria-label={`Paso ${step.number}`}
-                  >
-                    <span
-                      className={`w-2.5 h-2.5 rounded-full transition-colors ${
-                        isReached
-                          ? "bg-[#11ffa1] shadow-[0_0_8px_#11ffa1]"
-                          : "bg-[var(--text-muted)]"
-                      }`}
-                    />
-                  </button>
+                <div
+                  key={step.number}
+                  ref={(el) => {
+                    itemsRef.current[index] = el;
+                  }}
+                  className="absolute inset-0 flex flex-col justify-center items-start text-left will-change-[transform,opacity,filter]"
+                >
+                  {/* Ícono Flotante y Badge Alineados */}
+                  <div className="flex items-center gap-4 mb-5">
+                    <div className="w-13 h-13 rounded-full liquid-pill flex items-center justify-center shrink-0 border border-[#11ffa1]/40 shadow-[0_0_20px_rgba(17,255,161,0.25)]">
+                      <Icon className="w-5 h-5 text-[#11ffa1]" />
+                    </div>
+
+                    <div className="flex flex-col">
+                      <span className="text-xs font-mono uppercase tracking-widest text-[#11ffa1]">
+                        PASO {step.number} · {step.subtitle}
+                      </span>
+                      <span className="text-[11px] text-[var(--text-muted)] font-mono">
+                        ETAPA {index + 1} DE {TRACE_STEPS.length}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Título Principal */}
+                  <h3 className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-[var(--text-primary)] leading-[1.15] mb-4 tracking-tight max-w-2xl">
+                    {step.title}
+                  </h3>
+
+                  {/* Descripción */}
+                  <p className="text-base sm:text-lg text-[var(--text-secondary)] leading-relaxed max-w-2xl">
+                    {step.description}
+                  </p>
                 </div>
               );
             })}
           </div>
-        </div>
-
-        {/* 4 Liquid Glass Step Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {TRACE_STEPS.map((step, index) => {
-            const Icon = step.icon;
-            const isHighlighted = index === activeStep;
-            return (
-              <motion.div
-                key={step.number}
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.4, delay: index * 0.08 }}
-                onMouseEnter={() => setActiveStep(index)}
-                onClick={() => setActiveStep(index)}
-                className={`liquid-glass p-7 flex flex-col justify-between cursor-pointer ${
-                  isHighlighted ? "border-[#11ffa1]/50" : ""
-                }`}
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <span
-                      className="px-3 py-1 rounded-full liquid-pill font-mono text-xs font-semibold"
-                      style={{ color: "var(--color-accent-text)" }}
-                    >
-                      PASO {step.number}
-                    </span>
-                    <div
-                      className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
-                        isHighlighted
-                          ? "bg-[#11ffa1] text-[#08080a]"
-                          : "liquid-pill text-[var(--color-accent-text)]"
-                      }`}
-                    >
-                      <Icon className="w-4 h-4" />
-                    </div>
-                  </div>
-
-                  <span className="text-xs font-mono uppercase tracking-wider text-[var(--text-muted)] block mb-1.5">
-                    {step.subtitle}
-                  </span>
-                  <h3 className="font-display text-lg sm:text-xl font-bold text-[var(--text-primary)] mb-3 leading-snug">
-                    {step.title}
-                  </h3>
-                  <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-                    {step.description}
-                  </p>
-                </div>
-              </motion.div>
-            );
-          })}
         </div>
       </div>
     </section>

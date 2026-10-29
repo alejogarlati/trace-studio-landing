@@ -46,7 +46,7 @@ export default function Navbar() {
             href="#problemas"
             className="hover:text-[var(--text-primary)] transition-colors"
           >
-            Qué resolvemos
+            Desafíos
           </a>
           <a
             href="#soluciones"
@@ -58,13 +58,13 @@ export default function Navbar() {
             href="#casos"
             className="hover:text-[var(--text-primary)] transition-colors"
           >
-            Trabajos
+            Casos de estudio
           </a>
           <a
             href="#proceso"
             className="hover:text-[var(--text-primary)] transition-colors"
           >
-            Proceso
+            Metodología
           </a>
           <a
             href="#estudio"
@@ -98,7 +98,7 @@ export default function Navbar() {
             href="#cotizador"
             className="inline-flex items-center gap-1.5 text-xs font-semibold px-4 py-2.5 rounded-full bg-[#11ffa1] hover:bg-[#00e58d] text-[#08080a] shadow-[0_0_20px_rgba(17,255,161,0.25)] transition-all"
           >
-            Cotizar proyecto
+            Solicitar cotización
             <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
         </div>
@@ -140,7 +140,7 @@ export default function Navbar() {
             onClick={() => setMobileMenuOpen(false)}
             className="hover:text-[var(--text-primary)] py-1.5"
           >
-            Qué resolvemos
+            Desafíos
           </a>
           <a
             href="#soluciones"
@@ -154,14 +154,14 @@ export default function Navbar() {
             onClick={() => setMobileMenuOpen(false)}
             className="hover:text-[var(--text-primary)] py-1.5"
           >
-            Trabajos
+            Casos de estudio
           </a>
           <a
             href="#proceso"
             onClick={() => setMobileMenuOpen(false)}
             className="hover:text-[var(--text-primary)] py-1.5"
           >
-            Proceso
+            Metodología
           </a>
           <a
             href="#estudio"
@@ -175,7 +175,7 @@ export default function Navbar() {
             onClick={() => setMobileMenuOpen(false)}
             className="inline-flex items-center justify-center gap-2 text-xs font-semibold px-4 py-3 rounded-full bg-[#11ffa1] text-[#08080a] mt-1"
           >
-            Cotizar proyecto
+            Solicitar cotización
             <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
         </div>

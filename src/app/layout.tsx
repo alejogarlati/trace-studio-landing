@@ -16,7 +16,7 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "Trace Studio | Software a Medida, Automatización & Datos",
   description:
-    "Hacemos el software que tu empresa necesita para trabajar sin trabas. Sistemas a medida, automatizaciones y datos de punta a punta.",
+    "Desarrollo de software a medida, automatización e inteligencia de datos para empresas. Sistemas de gestión interna y plataformas corporativas de alto rendimiento.",
   keywords: [
     "Software a medida",
     "Automatización de procesos",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Trace Studio | Software a Medida, Automatización & Datos",
     description:
-      "Hacemos el software que tu empresa necesita para trabajar sin trabas. Sistemas a medida, automatizaciones y datos de punta a punta.",
+      "Desarrollo de software a medida, automatización e inteligencia de datos para empresas. Sistemas de gestión interna y plataformas corporativas de alto rendimiento.",
     type: "website",
     locale: "es_AR",
     siteName: "Trace Studio",

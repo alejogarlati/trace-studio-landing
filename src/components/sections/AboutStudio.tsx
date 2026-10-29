@@ -6,21 +6,21 @@ import PngSlot from "@/components/ui/PngSlot";
 
 const PILLARS = [
   {
-    title: "Formación técnica real",
+    title: "Rigor técnico y arquitectura sólida",
     description:
-      "Base universitaria en programación (UTN) y experiencia real resolviendo operaciones de empresas locales.",
+      "Formación académica en ingeniería (UTN) y aplicación de estándares modernos en desarrollo de software y bases de datos.",
     icon: ShieldCheck,
   },
   {
-    title: "Trato directo con el equipo técnico",
+    title: "Interlocución técnica directa",
     description:
-      "Sin ejecutivos de cuenta ni intermediarios. Conversaciones directas entre tu negocio y el equipo que diseña y programa el sistema.",
+      "Comunicación fluida y directa entre los responsables de la empresa y los ingenieros a cargo del proyecto, sin intermediarios comerciales.",
     icon: MessageSquareCode,
   },
   {
-    title: "El software es de tu empresa",
+    title: "Activos tecnológicos propios",
     description:
-      "Desarrollamos herramientas propietarias para tu negocio, sin ataduras a licencias mensuales por cada empleado que sumes.",
+      "Desarrollamos herramientas propietarias para su empresa, sin dependencia de licencias mensuales recurrentes por usuario.",
     icon: KeyRound,
   },
 ];
@@ -52,26 +52,27 @@ export default function AboutStudio() {
                   style={{ background: "var(--color-accent)" }}
                 />
                 <span style={{ color: "var(--color-accent-text)" }}>
-                  05 · POR QUÉ EXISTE TRACE STUDIO
+                  05 · PROPUESTA INSTITUCIONAL
                 </span>
               </div>
 
               <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[var(--text-primary)] leading-[1.12]">
-                Ingeniería de software con rigor técnico y enfoque comercial.
+                Ingeniería de software con enfoque en la eficiencia operativa.
               </h2>
 
               <p className="text-base sm:text-lg text-[var(--text-secondary)] leading-relaxed">
-                Trace Studio nace para dar respuesta a una problemática común:
-                empresas atrapadas entre agencias con estructuras burocráticas
-                que demoran meses en implementar cambios, o plataformas enlatadas
-                que no terminan de encajar con la dinámica real de su mercado.
+                Trace Studio surge como alternativa para empresas que requieren
+                soluciones tecnológicas específicas: aquellas que se encuentran
+                limitadas por la rigidez de los sistemas estándar o por los tiempos
+                extensos de las agencias tradicionales de desarrollo.
               </p>
 
               <p className="text-base sm:text-lg text-[var(--text-secondary)] leading-relaxed">
-                En el estudio analizamos la dinámica de cada operación, eliminamos
-                las fricciones que consumen tiempo y recursos, y construimos
-                herramientas sólidas y escalables que los equipos adoptan con
-                facilidad desde el primer día.
+                Combinamos formación técnica en ingeniería (UTN) con experiencia
+                directa en procesos empresariales. Diseñamos herramientas
+                propietarias orientadas a reducir tiempos de gestión, garantizar
+                la integridad de los datos y asegurar que el software pertenezca
+                íntegramente a la empresa.
               </p>
             </div>
 

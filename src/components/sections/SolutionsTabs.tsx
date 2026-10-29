@@ -31,13 +31,13 @@ const SOLUTIONS: SolutionItem[] = [
     wizardOptionId: "gestion",
     code: "01",
     shortLabel: "Sistemas de Gestión",
-    title: "Tu propio sistema interno, armado para cómo trabaja tu gente.",
+    title: "Sistemas de gestión interna desarrollados según el flujo de su equipo.",
     description:
-      "En vez de forzar a tu equipo a usar un programa genérico lleno de vueltas, armamos las pantallas exactas que necesitan para controlar stock, pedidos, caja, cuentas corrientes y entregas.",
+      "Desarrollamos plataformas web para el control de inventario, pedidos, facturación, cuentas corrientes y logística, respetando la lógica operativa de la empresa.",
     points: [
-      "Entrás desde el navegador en el local, el depósito o tu casa.",
-      "Cada persona ve solo lo que le corresponde según su puesto.",
-      "Queda registrado quién hizo cada movimiento y a qué hora.",
+      "Acceso seguro vía navegador desde cualquier sucursal o puesto de trabajo.",
+      "Asignación de permisos y niveles de visualización segmentados por rol.",
+      "Trazabilidad y registro de auditoría de cada movimiento realizado.",
     ],
     pngPath: "/images/soluciones/solucion-01.png",
     pngLabel: "Gráfica PNG · Sistema de Gestión",
@@ -48,13 +48,13 @@ const SOLUTIONS: SolutionItem[] = [
     wizardOptionId: "datos",
     code: "02",
     shortLabel: "Datos y Tableros",
-    title: "Números limpios al día para decidir sin adivinar.",
+    title: "Consolidación y análisis de métricas para la toma de decisiones.",
     description:
-      "Tomamos los datos que ya genera tu negocio (ventas, compras, costos, listas de precios), los limpiamos automáticamente y te los mostramos en un tablero simple donde ves qué rinde y qué no.",
+      "Estructuramos y limpiamos los datos generados por las diferentes áreas del negocio para proyectar tableros de control con indicadores comerciales y financieros precisos.",
     points: [
-      "Dejás de cruzar planillas a mano cada fin de mes.",
-      "Ves el margen real limpio por producto, rubro o sucursal.",
-      "Sabés qué mercadería rota rápido y cuál te está frenando capital.",
+      "Eliminación de la consolidación manual de planillas al cierre de mes.",
+      "Cálculo de márgenes netos por producto, categoría y punto de venta.",
+      "Monitoreo de indicadores de rotación de mercadería y capital inmovilizado.",
     ],
     pngPath: "/images/soluciones/solucion-02.png",
     pngLabel: "Gráfica PNG · Inteligencia de Datos",
@@ -65,13 +65,13 @@ const SOLUTIONS: SolutionItem[] = [
     wizardOptionId: "automatizacion",
     code: "03",
     shortLabel: "Automatizaciones",
-    title: "Que las tareas repetitivas se hagan solas en segundos.",
+    title: "Automatización de flujos de datos e integración de sistemas.",
     description:
-      "Si todos los meses alguien de tu equipo pasa horas copiando precios de un PDF o Excel a la tienda online, automatizamos ese circuito de punta a punta para que se actualice sin errores.",
+      "Conectamos bases de datos, proveedores y plataformas de venta para ejecutar de forma automática tareas críticas de actualización y sincronización.",
     points: [
-      "Actualización masiva de miles de precios y márgenes en segundos.",
-      "Stock sincronizado entre el mostrador físico y la tienda web.",
-      "Menos errores de carga manual y más tiempo para atender clientes.",
+      "Procesamiento masivo de listas de precios y costos en segundos.",
+      "Sincronización continua de inventario entre depósitos físicos y canales web.",
+      "Reducción del margen de error humano en la transcripción de datos.",
     ],
     pngPath: "/images/soluciones/solucion-03.png",
     pngLabel: "Gráfica PNG · Automatización de Procesos",
@@ -82,13 +82,13 @@ const SOLUTIONS: SolutionItem[] = [
     wizardOptionId: "web",
     code: "04",
     shortLabel: "Webs y Catálogos",
-    title: "Una presencia web rápida, seria y pensada para vender.",
+    title: "Sitios corporativos y catálogos digitales orientados a la conversión.",
     description:
-      "Desarrollamos sitios empresariales y catálogos digitales que abren al instante en cualquier celular, muestran con claridad lo que hacés y facilitan que te pidan presupuesto directo.",
+      "Desarrollamos plataformas web institucionales con arquitectura moderna y carga instantánea, orientadas a presentar la propuesta comercial y canalizar consultas calificadas.",
     points: [
-      "Carga rapidísima sin plantillas pesadas que se traban.",
-      "Imagen sólida para respaldar presupuestos y licitaciones.",
-      "Contacto directo al WhatsApp o correo de tu equipo comercial.",
+      "Rendimiento optimizado sin dependencia de plantillas prefabricadas.",
+      "Arquitectura visual y técnica alineada a los estándares de la compañía.",
+      "Canales de contacto directo integrados a los sistemas comerciales de la empresa.",
     ],
     pngPath: "/images/soluciones/solucion-04.png",
     pngLabel: "Gráfica PNG · Plataforma Web",
@@ -132,11 +132,11 @@ export default function SolutionsTabs() {
               style={{ background: "var(--color-accent)" }}
             />
             <span style={{ color: "var(--color-accent-text)" }}>
-              02 · QUÉ CONSTRUIMOS
+              02 · ÁREAS DE DESARROLLO
             </span>
           </div>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[var(--text-primary)] leading-[1.12]">
-            Cuatro áreas concretas para ordenar y agilizar tu empresa.
+            Soluciones de software estructuradas según la necesidad de su empresa.
           </h2>
         </div>
 
@@ -222,7 +222,7 @@ export default function SolutionsTabs() {
                     }
                     className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#11ffa1] hover:bg-[#00e58d] text-[#08080a] font-semibold text-sm shadow-[0_0_20px_rgba(17,255,161,0.25)] transition-all"
                   >
-                    Consultar por esto
+                    Consultar por esta solución
                     <ArrowRight className="w-4 h-4" />
                   </a>
                 </div>
