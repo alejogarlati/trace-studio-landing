@@ -113,7 +113,9 @@ export default function HeroCanvasOptionA() {
 
         // Circular vignette fade at edges
         float vignette = 1.0 - smoothstep(0.45, 1.15, centerDist);
-        gl_FragColor = vec4(finalColor, finalAlpha * vignette);
+        // Vertical bottom fade: disuelve gradualmente los orbes hacia la base para que no se corten en seco
+        float bottomFade = smoothstep(0.04, 0.35, vUv.y);
+        gl_FragColor = vec4(finalColor, finalAlpha * vignette * bottomFade);
       }
     `;
 
@@ -181,6 +183,10 @@ export default function HeroCanvasOptionA() {
     <div
       ref={containerRef}
       className="absolute inset-0 pointer-events-none z-0 overflow-hidden"
+      style={{
+        maskImage: "linear-gradient(to bottom, black 0%, black 60%, transparent 98%)",
+        WebkitMaskImage: "linear-gradient(to bottom, black 0%, black 60%, transparent 98%)",
+      }}
       aria-hidden="true"
     />
   );

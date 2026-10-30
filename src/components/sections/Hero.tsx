@@ -129,6 +129,12 @@ export default function Hero() {
         aria-hidden="true"
       />
 
+      {/* Gradiente de desvanecimiento suave a negro / color de fondo en la base del Hero */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-44 sm:h-64 pointer-events-none z-[1] bg-gradient-to-t from-[var(--bg-primary)] via-[var(--bg-primary)]/80 to-transparent"
+        aria-hidden="true"
+      />
+
       <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center my-auto">
         {/* Borderless Hero Content */}
         <div id="hero-card" className="w-full flex flex-col items-center">
