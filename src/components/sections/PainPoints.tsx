@@ -196,7 +196,7 @@ export default function PainPoints() {
 
       <div className="relative z-10 max-w-5xl mx-auto w-full">
         {/* Header Superior: Claim y Subclaim alineados a la izquierda (Scrollean libremente) */}
-        <div className="max-w-3xl mb-14 sm:mb-16 text-left">
+        <div id="problemas-header" className="max-w-3xl mb-14 sm:mb-16 text-left">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full liquid-pill text-xs font-mono mb-4">
             <span
               className="w-2 h-2 rounded-full"

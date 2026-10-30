@@ -1,5 +1,6 @@
 import Navbar from "@/components/sections/Navbar";
 import Hero from "@/components/sections/Hero";
+import HeroCurveSeparator from "@/components/ui/HeroCurveSeparator";
 import PainPoints from "@/components/sections/PainPoints";
 import SolutionsTabs from "@/components/sections/SolutionsTabs";
 import CaseStudiesSlider from "@/components/sections/CaseStudiesSlider";
@@ -13,6 +14,7 @@ export default function Home() {
     <main className="relative min-h-screen">
       <Navbar />
       <Hero />
+      <HeroCurveSeparator />
       <PainPoints />
       <SolutionsTabs />
       <CaseStudiesSlider />
