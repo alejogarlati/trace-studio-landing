@@ -16,8 +16,8 @@ interface SpotlightCardProps extends React.HTMLAttributes<HTMLDivElement> {
 export default function SpotlightCard({
   children,
   className = "",
-  spotlightColor = "rgba(17, 255, 161, 0.12)",
-  borderColor = "rgba(17, 255, 161, 0.35)",
+  spotlightColor = "rgba(17, 255, 161, 0.08)",
+  borderColor = "rgba(17, 255, 161, 0.22)",
   ...props
 }: SpotlightCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -33,10 +33,10 @@ export default function SpotlightCard({
       if (!card || !glow || !borderGlow) return;
 
       // QuickTo para actualizar la posición x e y del resplandor a 60fps sin reflows
-      const setGlowX = gsap.quickTo(glow, "x", { duration: 0.15, ease: "power2.out" });
-      const setGlowY = gsap.quickTo(glow, "y", { duration: 0.15, ease: "power2.out" });
-      const setBorderX = gsap.quickTo(borderGlow, "x", { duration: 0.15, ease: "power2.out" });
-      const setBorderY = gsap.quickTo(borderGlow, "y", { duration: 0.15, ease: "power2.out" });
+      const setGlowX = gsap.quickTo(glow, "x", { duration: 0.22, ease: "power2.out" });
+      const setGlowY = gsap.quickTo(glow, "y", { duration: 0.22, ease: "power2.out" });
+      const setBorderX = gsap.quickTo(borderGlow, "x", { duration: 0.22, ease: "power2.out" });
+      const setBorderY = gsap.quickTo(borderGlow, "y", { duration: 0.22, ease: "power2.out" });
 
       const handleMouseMove = (e: MouseEvent) => {
         const rect = card.getBoundingClientRect();
@@ -66,13 +66,13 @@ export default function SpotlightCard({
       className={`relative rounded-2xl overflow-hidden border border-[var(--glass-border)] bg-[var(--glass-bg)] backdrop-blur-md transition-colors duration-300 ${className}`}
       {...props}
     >
-      {/* Resplandor radial de borde iluminado según la posición del cursor */}
+      {/* Resplandor radial de borde difuso con desenfoque suave y 30% menos opacidad */}
       <div
         ref={borderGlowRef}
-        className="pointer-events-none absolute -top-40 -left-40 w-80 h-80 rounded-full transition-opacity duration-300"
+        className="pointer-events-none absolute -top-[240px] -left-[240px] w-[480px] h-[480px] rounded-full blur-[36px] transition-opacity duration-500 ease-out"
         style={{
-          background: `radial-gradient(circle, ${borderColor} 0%, transparent 70%)`,
-          opacity: isHovered ? 0.7 : 0,
+          background: `radial-gradient(circle, ${borderColor} 0%, rgba(17, 255, 161, 0.04) 40%, transparent 72%)`,
+          opacity: isHovered ? 0.45 : 0,
           transform: "translate3d(0, 0, 0)",
           willChange: "transform, opacity",
           zIndex: 0,
@@ -80,13 +80,13 @@ export default function SpotlightCard({
         aria-hidden="true"
       />
 
-      {/* Resplandor radial interior de alta fidelidad estilo Vercel */}
+      {/* Resplandor radial interior amplio, etéreo y muy desenfocado */}
       <div
         ref={glowRef}
-        className="pointer-events-none absolute -top-48 -left-48 w-96 h-96 rounded-full transition-opacity duration-300"
+        className="pointer-events-none absolute -top-[300px] -left-[300px] w-[600px] h-[600px] rounded-full blur-[54px] transition-opacity duration-500 ease-out"
         style={{
-          background: `radial-gradient(circle, ${spotlightColor} 0%, transparent 65%)`,
-          opacity: isHovered ? 1 : 0,
+          background: `radial-gradient(circle, ${spotlightColor} 0%, rgba(17, 255, 161, 0.02) 45%, transparent 75%)`,
+          opacity: isHovered ? 0.7 : 0,
           transform: "translate3d(0, 0, 0)",
           willChange: "transform, opacity",
           zIndex: 0,

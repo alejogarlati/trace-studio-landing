@@ -123,7 +123,6 @@ export default function AboutStudio() {
                 <SpotlightCard
                   key={pillar.title}
                   className="about-pillar-card p-6 border border-[var(--glass-border)] hover:border-[#11ffa1]/40 transition-colors"
-                  spotlightColor="rgba(17, 255, 161, 0.15)"
                 >
                   <div className="w-10 h-10 rounded-full liquid-pill flex items-center justify-center mb-4 border border-[#11ffa1]/30 text-[#11ffa1]">
                     <Icon className="w-4 h-4" />
