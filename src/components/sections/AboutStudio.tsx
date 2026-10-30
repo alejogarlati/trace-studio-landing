@@ -1,8 +1,14 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
 import { ShieldCheck, MessageSquareCode, KeyRound } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 import PngSlot from "@/components/ui/PngSlot";
+import SpotlightCard from "@/components/ui/SpotlightCard";
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const PILLARS = [
   {
@@ -26,8 +32,45 @@ const PILLARS = [
 ];
 
 export default function AboutStudio() {
+  const containerRef = useRef<HTMLElement>(null);
+
+  useGSAP(
+    () => {
+      // Entrada escalonada de la tarjeta principal y los pilares institucionales con ScrollTrigger
+      gsap.from(".about-main-card", {
+        opacity: 0,
+        y: 35,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".about-main-card",
+          start: "top 85%",
+          toggleActions: "play none none none",
+        },
+      });
+
+      gsap.from(".about-pillar-card", {
+        opacity: 0,
+        y: 30,
+        stagger: 0.15,
+        duration: 0.7,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".about-pillars-grid",
+          start: "top 88%",
+          toggleActions: "play none none none",
+        },
+      });
+    },
+    { scope: containerRef }
+  );
+
   return (
-    <section id="estudio" className="relative py-24 sm:py-32 px-6 overflow-hidden">
+    <section
+      ref={containerRef}
+      id="estudio"
+      className="relative py-24 sm:py-32 px-6 overflow-hidden"
+    >
       {/* Circular Ambient Orb */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[620px] h-[620px] rounded-full blur-[150px] pointer-events-none"
@@ -36,22 +79,13 @@ export default function AboutStudio() {
       />
 
       <div className="relative z-10 max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.45 }}
-          className="liquid-glass p-8 sm:p-12 lg:p-14"
-        >
+        <SpotlightCard className="about-main-card p-8 sm:p-12 lg:p-14">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Left Column: Manifesto */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full liquid-pill text-xs font-mono">
-                <span
-                  className="w-2 h-2 rounded-full"
-                  style={{ background: "var(--color-accent)" }}
-                />
-                <span style={{ color: "var(--color-accent-text)" }}>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full liquid-pill text-xs font-mono border border-[#11ffa1]/20">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#11ffa1] shadow-[0_0_8px_#11ffa1]" />
+                <span className="text-[#11ffa1] tracking-wider uppercase">
                   05 · PROPUESTA INSTITUCIONAL
                 </span>
               </div>
@@ -88,17 +122,18 @@ export default function AboutStudio() {
             </div>
           </div>
 
-          {/* 3 Institutional Pillars */}
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-5">
+          {/* 3 Institutional Pillars with Individual Spotlights */}
+          <div className="about-pillars-grid mt-10 grid grid-cols-1 md:grid-cols-3 gap-5">
             {PILLARS.map((pillar) => {
               const Icon = pillar.icon;
               return (
-                <div key={pillar.title} className="p-6 liquid-glass-subtle">
-                  <div className="w-10 h-10 rounded-full liquid-pill flex items-center justify-center mb-4">
-                    <Icon
-                      className="w-4 h-4"
-                      style={{ color: "var(--color-accent-text)" }}
-                    />
+                <SpotlightCard
+                  key={pillar.title}
+                  className="about-pillar-card p-6 border border-[var(--glass-border)] hover:border-[#11ffa1]/40 transition-colors"
+                  spotlightColor="rgba(17, 255, 161, 0.15)"
+                >
+                  <div className="w-10 h-10 rounded-full liquid-pill flex items-center justify-center mb-4 border border-[#11ffa1]/30 text-[#11ffa1]">
+                    <Icon className="w-4 h-4" />
                   </div>
                   <h3 className="font-display text-lg font-bold text-[var(--text-primary)] mb-1.5">
                     {pillar.title}
@@ -106,11 +141,11 @@ export default function AboutStudio() {
                   <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
                     {pillar.description}
                   </p>
-                </div>
+                </SpotlightCard>
               );
             })}
           </div>
-        </motion.div>
+        </SpotlightCard>
       </div>
     </section>
   );

@@ -1,28 +1,56 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useRef } from "react";
 import { ArrowUpRight, Menu, X, Sun, Moon } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const navContainerRef = useRef<HTMLElement>(null);
+  const pillRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 16);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  useGSAP(
+    () => {
+      const pill = pillRef.current;
+      if (!pill) return;
+
+      // ScrollTrigger para elevar la barra con precisión Vercel al hacer scroll
+      ScrollTrigger.create({
+        start: "top -20",
+        onEnter: () => {
+          gsap.to(pill, {
+            backgroundColor: "rgba(8, 8, 10, 0.82)",
+            borderColor: "rgba(17, 255, 161, 0.25)",
+            boxShadow: "0 12px 36px -10px rgba(0, 0, 0, 0.65), 0 0 20px rgba(17, 255, 161, 0.08)",
+            duration: 0.35,
+            ease: "power2.out",
+          });
+        },
+        onLeaveBack: () => {
+          gsap.to(pill, {
+            backgroundColor: "var(--glass-bg)",
+            borderColor: "var(--glass-border)",
+            boxShadow: "0 0 0 rgba(0, 0, 0, 0)",
+            duration: 0.3,
+            ease: "power2.out",
+          });
+        },
+      });
+    },
+    { scope: navContainerRef }
+  );
 
   return (
-    <header className="fixed top-4 left-0 right-0 z-50 px-4 sm:px-6">
+    <header ref={navContainerRef} className="fixed top-4 left-0 right-0 z-50 px-4 sm:px-6">
       <div
-        className={`max-w-5xl mx-auto liquid-pill px-5 py-3 flex items-center justify-between transition-all duration-300 ${
-          scrolled ? "shadow-2xl" : ""
-        }`}
+        ref={pillRef}
+        className="max-w-5xl mx-auto liquid-pill px-5 py-3 flex items-center justify-between transition-all duration-300 border border-[var(--glass-border)]"
       >
         {/* Brand Mark - Circular Dot + Typography */}
         <a href="#" className="flex items-center gap-2.5 group">

@@ -4,6 +4,8 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react";
 import PngSlot from "@/components/ui/PngSlot";
+import SpotlightCard from "@/components/ui/SpotlightCard";
+import AnimatedCounter from "@/components/ui/AnimatedCounter";
 
 interface CaseStudy {
   id: string;
@@ -193,15 +195,15 @@ export default function CaseStudiesSlider() {
           })}
         </div>
 
-        {/* Main Liquid Glass Case Card */}
-        <div className="liquid-glass p-7 sm:p-10 lg:p-12">
+        {/* Main Spotlight Case Card */}
+        <SpotlightCard className="p-7 sm:p-10 lg:p-12">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentCase.id}
-              initial={{ opacity: 0, x: 16 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -16 }}
-              transition={{ duration: 0.32 }}
+              initial={{ opacity: 0, x: 20, filter: "blur(4px)" }}
+              animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+              exit={{ opacity: 0, x: -20, filter: "blur(4px)" }}
+              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
               className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center"
             >
               {/* Left Column: Story & Metrics */}
@@ -219,7 +221,7 @@ export default function CaseStudiesSlider() {
                 </div>
 
                 <div className="space-y-4">
-                  <div className="p-4 liquid-glass-subtle">
+                  <div className="p-4 liquid-glass-subtle rounded-xl">
                     <span className="text-[11px] font-mono uppercase tracking-wider text-[var(--text-muted)] block mb-1">
                       Situación inicial
                     </span>
@@ -228,7 +230,7 @@ export default function CaseStudiesSlider() {
                     </p>
                   </div>
 
-                  <div className="p-4 liquid-glass-subtle">
+                  <div className="p-4 liquid-glass-subtle rounded-xl border-l-2 border-[#11ffa1]/70">
                     <span
                       className="text-[11px] font-mono uppercase tracking-wider block mb-1"
                       style={{ color: "var(--color-accent-text)" }}
@@ -241,19 +243,17 @@ export default function CaseStudiesSlider() {
                   </div>
                 </div>
 
-                {/* 3 Metric Pills */}
+                {/* 3 Metric Pills with Animated Rolling Numbers */}
                 <div className="grid grid-cols-3 gap-3 pt-1">
                   {currentCase.metrics.map((metric, i) => (
                     <div
                       key={i}
-                      className="p-3.5 liquid-glass-subtle flex flex-col justify-center"
+                      className="p-3.5 liquid-glass-subtle rounded-xl flex flex-col justify-center border border-[var(--glass-border)] hover:border-[#11ffa1]/30 transition-colors"
                     >
-                      <span
-                        className="font-display text-lg sm:text-2xl font-bold tracking-tight"
-                        style={{ color: "var(--color-accent-text)" }}
-                      >
-                        {metric.value}
-                      </span>
+                      <AnimatedCounter
+                        value={metric.value}
+                        className="font-display text-lg sm:text-2xl font-bold tracking-tight text-[#11ffa1]"
+                      />
                       <span className="mt-1 text-[11px] sm:text-xs text-[var(--text-secondary)] leading-snug">
                         {metric.label}
                       </span>
@@ -264,12 +264,11 @@ export default function CaseStudiesSlider() {
                 <div className="pt-2">
                   <a
                     href="#cotizador"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full liquid-pill text-xs font-medium text-[var(--text-primary)] hover:border-[#11ffa1]/40 transition-all"
+                    className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full liquid-pill text-xs font-medium text-[var(--text-primary)] hover:border-[#11ffa1]/40 hover:bg-white/[0.04] transition-all"
                   >
                     Solicitar una solución similar
                     <ArrowUpRight
-                      className="w-3.5 h-3.5"
-                      style={{ color: "var(--color-accent-text)" }}
+                      className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#11ffa1]"
                     />
                   </a>
                 </div>
@@ -287,7 +286,7 @@ export default function CaseStudiesSlider() {
               </div>
             </motion.div>
           </AnimatePresence>
-        </div>
+        </SpotlightCard>
       </div>
     </section>
   );

@@ -15,6 +15,7 @@ import {
   Globe,
   HelpCircle,
 } from "lucide-react";
+import SpotlightCard from "@/components/ui/SpotlightCard";
 
 const STEP_1_OPTIONS = [
   {
@@ -217,8 +218,8 @@ export default function InteractiveWizard() {
           </p>
         </div>
 
-        {/* Liquid Glass Wizard Container */}
-        <div className="liquid-glass p-7 sm:p-10 lg:p-12">
+        {/* Spotlight Wizard Container */}
+        <SpotlightCard className="p-7 sm:p-10 lg:p-12">
           {/* Progress Header */}
           <div className="mb-8">
             <div className="flex items-center justify-between text-xs font-mono mb-3">
@@ -687,7 +688,7 @@ export default function InteractiveWizard() {
               </motion.div>
             )}
           </AnimatePresence>
-        </div>
+        </SpotlightCard>
       </div>
     </section>
   );

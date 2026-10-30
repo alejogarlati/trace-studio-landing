@@ -11,6 +11,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import PngSlot from "@/components/ui/PngSlot";
+import SpotlightCard from "@/components/ui/SpotlightCard";
 
 interface SolutionItem {
   id: string;
@@ -140,7 +141,7 @@ export default function SolutionsTabs() {
           </h2>
         </div>
 
-        {/* Capsule Tab Bar (iOS Liquid Glass Pills) */}
+        {/* Capsule Tab Bar (Vercel Precision Active Indicator) */}
         <div
           className="flex flex-wrap items-center gap-2.5 mb-8"
           role="tablist"
@@ -155,34 +156,34 @@ export default function SolutionsTabs() {
                 role="tab"
                 aria-selected={isActive}
                 onClick={() => setActiveTabId(tab.id)}
-                className={`inline-flex items-center gap-2.5 px-5 py-3 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer ${
+                className={`relative inline-flex items-center gap-2.5 px-5 py-3 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer ${
                   isActive
-                    ? "bg-[#11ffa1] text-[#08080a] font-semibold shadow-[0_0_25px_rgba(17,255,161,0.28)]"
-                    : "liquid-pill text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+                    ? "bg-[#11ffa1] text-[#08080a] font-semibold shadow-[0_0_25px_rgba(17,255,161,0.3)] scale-[1.02]"
+                    : "liquid-pill text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[#11ffa1]/30"
                 }`}
               >
-                <Icon className="w-4 h-4" />
+                <Icon className={`w-4 h-4 ${isActive ? "text-[#08080a]" : "text-[#11ffa1]"}`} />
                 <span>{tab.shortLabel}</span>
               </button>
             );
           })}
         </div>
 
-        {/* Active Solution Liquid Glass Card */}
-        <div className="liquid-glass p-7 sm:p-10 lg:p-12">
+        {/* Active Solution Spotlight Card */}
+        <SpotlightCard className="p-7 sm:p-10 lg:p-12">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeSolution.id}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.3 }}
+              initial={{ opacity: 0, y: 12, filter: "blur(4px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              exit={{ opacity: 0, y: -12, filter: "blur(4px)" }}
+              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
               className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center"
             >
               {/* Left Column: Direct Copy */}
               <div className="lg:col-span-6 space-y-6">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full liquid-pill text-xs font-mono text-[var(--text-secondary)]">
-                  <strong style={{ color: "var(--color-accent-text)" }}>
+                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full liquid-pill text-xs font-mono text-[var(--text-secondary)] border border-[#11ffa1]/20">
+                  <strong className="text-[#11ffa1]">
                     {activeSolution.code}
                   </strong>
                   <span>·</span>
@@ -199,18 +200,18 @@ export default function SolutionsTabs() {
 
                 <ul className="space-y-3 pt-1">
                   {activeSolution.points.map((point, index) => (
-                    <li
+                    <motion.li
                       key={index}
+                      initial={{ opacity: 0, x: -8 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: index * 0.08 }}
                       className="flex items-start gap-3 text-sm sm:text-base text-[var(--text-primary)]"
                     >
-                      <span className="w-5 h-5 rounded-full liquid-pill flex items-center justify-center shrink-0 mt-0.5">
-                        <Check
-                          className="w-3 h-3"
-                          style={{ color: "var(--color-accent-text)" }}
-                        />
+                      <span className="w-5 h-5 rounded-full liquid-pill flex items-center justify-center shrink-0 mt-0.5 border border-[#11ffa1]/30 text-[#11ffa1]">
+                        <Check className="w-3 h-3" />
                       </span>
                       <span>{point}</span>
-                    </li>
+                    </motion.li>
                   ))}
                 </ul>
 
@@ -220,10 +221,10 @@ export default function SolutionsTabs() {
                     onClick={() =>
                       handleSelectForQuote(activeSolution.wizardOptionId)
                     }
-                    className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#11ffa1] hover:bg-[#00e58d] text-[#08080a] font-semibold text-sm shadow-[0_0_20px_rgba(17,255,161,0.25)] transition-all"
+                    className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#11ffa1] hover:bg-[#00e58d] text-[#08080a] font-semibold text-sm shadow-[0_0_20px_rgba(17,255,161,0.25)] transition-all overflow-hidden"
                   >
-                    Consultar por esta solución
-                    <ArrowRight className="w-4 h-4" />
+                    <span>Consultar por esta solución</span>
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                   </a>
                 </div>
               </div>
@@ -240,7 +241,7 @@ export default function SolutionsTabs() {
               </div>
             </motion.div>
           </AnimatePresence>
-        </div>
+        </SpotlightCard>
       </div>
     </section>
   );
