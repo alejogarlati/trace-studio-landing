@@ -32,13 +32,13 @@ const SOLUTIONS: SolutionItem[] = [
     wizardOptionId: "gestion",
     code: "01",
     shortLabel: "Sistemas de Gestión",
-    title: "Sistemas de gestión interna desarrollados según el flujo de su equipo.",
+    title: "Sistemas de gestión interna diseñados para su operatoria.",
     description:
-      "Desarrollamos plataformas web para el control de inventario, pedidos, facturación, cuentas corrientes y logística, respetando la lógica operativa de la empresa.",
+      "Plataformas web para controlar inventario, pedidos, facturación, cuentas corrientes y logística desde cualquier sucursal, sin intermediarios.",
     points: [
-      "Acceso seguro vía navegador desde cualquier sucursal o puesto de trabajo.",
-      "Asignación de permisos y niveles de visualización segmentados por rol.",
-      "Trazabilidad y registro de auditoría de cada movimiento realizado.",
+      "Acceso web seguro desde cualquier sucursal o puesto de trabajo.",
+      "Permisos y niveles de visualización segmentados por rol.",
+      "Registro de auditoría con fecha, hora y responsable de cada movimiento.",
     ],
     pngPath: "/images/soluciones/solucion-01.png",
     pngLabel: "Gráfica PNG · Sistema de Gestión",
@@ -49,13 +49,13 @@ const SOLUTIONS: SolutionItem[] = [
     wizardOptionId: "datos",
     code: "02",
     shortLabel: "Datos y Tableros",
-    title: "Consolidación y análisis de métricas para la toma de decisiones.",
+    title: "Tableros de control con datos comerciales y financieros al día.",
     description:
-      "Estructuramos y limpiamos los datos generados por las diferentes áreas del negocio para proyectar tableros de control con indicadores comerciales y financieros precisos.",
+      "Unificamos la información de ventas, compras y stock para mostrar métricas claras sin esperar al cierre de mes ni cruzar planillas a mano.",
     points: [
-      "Eliminación de la consolidación manual de planillas al cierre de mes.",
-      "Cálculo de márgenes netos por producto, categoría y punto de venta.",
-      "Monitoreo de indicadores de rotación de mercadería y capital inmovilizado.",
+      "Cálculo automático de márgenes netos por producto y canal de venta.",
+      "Control de rotación de mercadería y capital inmovilizado en depósito.",
+      "Reportes inmediatos de cobranzas y cuentas corrientes pendientes.",
     ],
     pngPath: "/images/soluciones/solucion-02.png",
     pngLabel: "Gráfica PNG · Inteligencia de Datos",
@@ -66,13 +66,13 @@ const SOLUTIONS: SolutionItem[] = [
     wizardOptionId: "automatizacion",
     code: "03",
     shortLabel: "Automatizaciones",
-    title: "Automatización de flujos de datos e integración de sistemas.",
+    title: "Automatización de tareas repetitivas y sincronización de datos.",
     description:
-      "Conectamos bases de datos, proveedores y plataformas de venta para ejecutar de forma automática tareas críticas de actualización y sincronización.",
+      "Conectamos proveedores, bases de datos y canales de venta para que las listas de precios y el inventario se actualicen solos.",
     points: [
-      "Procesamiento masivo de listas de precios y costos en segundos.",
-      "Sincronización continua de inventario entre depósitos físicos y canales web.",
-      "Reducción del margen de error humano en la transcripción de datos.",
+      "Ingesta y normalización de listas de precios masivas en segundos.",
+      "Sincronización automática de stock entre depósitos y tiendas web.",
+      "Eliminación de la carga manual y los errores de tipeo en precios.",
     ],
     pngPath: "/images/soluciones/solucion-03.png",
     pngLabel: "Gráfica PNG · Automatización de Procesos",
@@ -83,13 +83,13 @@ const SOLUTIONS: SolutionItem[] = [
     wizardOptionId: "web",
     code: "04",
     shortLabel: "Webs y Catálogos",
-    title: "Sitios corporativos y catálogos digitales orientados a la conversión.",
+    title: "Sitios web corporativos y catálogos de venta directa.",
     description:
-      "Desarrollamos plataformas web institucionales con arquitectura moderna y carga instantánea, orientadas a presentar la propuesta comercial y canalizar consultas calificadas.",
+      "Plataformas web rápidas y a medida para mostrar obras, productos o servicios y recibir consultas comerciales directas.",
     points: [
-      "Rendimiento optimizado sin dependencia de plantillas prefabricadas.",
-      "Arquitectura visual y técnica alineada a los estándares de la compañía.",
-      "Canales de contacto directo integrados a los sistemas comerciales de la empresa.",
+      "Carga instantánea en celular y escritorio, sin plantillas pesadas.",
+      "Catálogo estructurado con buscador rápido y filtros por rubro.",
+      "Canal de cotizaciones conectado directo a su WhatsApp o correo.",
     ],
     pngPath: "/images/soluciones/solucion-04.png",
     pngLabel: "Gráfica PNG · Plataforma Web",
@@ -137,7 +137,7 @@ export default function SolutionsTabs() {
             </span>
           </div>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[var(--text-primary)] leading-[1.12]">
-            Soluciones de software estructuradas según la necesidad de su empresa.
+            Herramientas hechas para resolver problemas concretos de su operación.
           </h2>
         </div>
 

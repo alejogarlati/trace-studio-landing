@@ -29,9 +29,9 @@ const CASE_STUDIES: CaseStudy[] = [
     client: "Corralón Aconquija S.R.L",
     sector: "Distribución de materiales de construcción · Venta mayorista y minorista",
     summary:
-      "Administraban miles de artículos con listas de precios heterogéneas por proveedor, provocando desfasajes entre el inventario del depósito y el catálogo digital.",
+      "Manejaban miles de artículos con formatos de lista heterogéneos por proveedor. Actualizar precios a mano demoraba días y provocaba desfasajes entre el inventario del depósito y la tienda digital.",
     workDone:
-      "Desarrollamos herramientas automatizadas para la normalización de listas masivas, recálculo de precios y sincronización continua con la tienda online.",
+      "Desarrollamos una herramienta que normaliza las listas de proveedores automáticamente, recalcula márgenes comerciales y sincroniza el catálogo web en minutos.",
     pngPath: "/images/casos/caso-01.png",
     pngLabel: "Gráfica PNG · Caso Corralón Aconquija",
     metrics: [
@@ -44,8 +44,8 @@ const CASE_STUDIES: CaseStudy[] = [
         label: "Tiempo invertido en actualización",
       },
       {
-        value: "Tiempo real",
-        label: "Sincronización entre inventario y web",
+        value: "Minutos",
+        label: "Sincronización entre depósito y web",
       },
     ],
   },
@@ -55,22 +55,22 @@ const CASE_STUDIES: CaseStudy[] = [
     client: "Soluciones Proyectables S.R.L",
     sector: "Construcción e ingeniería civil",
     summary:
-      "Requerían una plataforma web corporativa que reflejara la escala de sus obras y funcionara como respaldo institucional en licitaciones y proyectos privados.",
+      "Necesitaban presentar sus obras con respaldo técnico sólido para licitaciones públicas y presupuestos corporativos.",
     workDone:
-      "Diseñamos y desarrollamos el sitio web institucional bajo estándares de alto rendimiento, estructurando el catálogo de obras y optimizando el canal de cotizaciones.",
+      "Diseñamos y programamos su plataforma web a medida, con catálogo estructurado de obras y canal directo de cotizaciones.",
     pngPath: "/images/casos/caso-02.png",
     pngLabel: "Gráfica PNG · Caso Soluciones Proyectables",
     metrics: [
       {
-        value: "Alto rendimiento",
-        label: "Carga optimizada en móvil y escritorio",
+        value: "< 1s",
+        label: "Tiempo de carga en móviles y escritorio",
       },
       {
-        value: "100% personalizada",
-        label: "Arquitectura desarrollada para su identidad",
+        value: "100%",
+        label: "Código a medida sin plantillas estándar",
       },
       {
-        value: "Canal directo",
+        value: "Directo",
         label: "Recepción de solicitudes de presupuesto",
       },
     ],
@@ -81,9 +81,9 @@ const CASE_STUDIES: CaseStudy[] = [
     client: "Sistema de Gestión Operativa (ERP)",
     sector: "Administración comercial y control de inventario",
     summary:
-      "La gestión operativa dependía de archivos desconectados, lo que dificultaba el seguimiento de saldos y la trazabilidad de los movimientos de mercadería.",
+      "La facturación, el depósito y las cuentas corrientes funcionaban en planillas separadas, sin registro de quién modificaba cada dato.",
     workDone:
-      "Construimos un sistema web centralizado con base de datos unificada, módulos de facturación, caja, control de stock y accesos diferenciados por área.",
+      "Construimos un sistema web centralizado con base de datos unificada, facturación, caja, control de stock y permisos por puesto de trabajo.",
     pngPath: "/images/casos/caso-03.png",
     pngLabel: "Gráfica PNG · Caso Sistema ERP",
     metrics: [
@@ -92,12 +92,12 @@ const CASE_STUDIES: CaseStudy[] = [
         label: "Inventario, cobranzas y pedidos unificados",
       },
       {
-        value: "Seguridad por rol",
+        value: "Por rol",
         label: "Permisos y auditoría por puesto de trabajo",
       },
       {
         value: "$0 licencias",
-        label: "Propiedad total sin abonos recurrentes por usuario",
+        label: "Propiedad total sin abonos mensuales por usuario",
       },
     ],
   },
@@ -143,7 +143,7 @@ export default function CaseStudiesSlider() {
               </span>
             </div>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[var(--text-primary)] leading-[1.12]">
-              Proyectos implementados y resultados operativos.
+              Trabajos entregados y resultados operativos.
             </h2>
           </div>
 

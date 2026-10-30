@@ -212,8 +212,7 @@ export default function Footer() {
               </a>
 
               <p className="text-sm text-[var(--text-secondary)] max-w-sm leading-relaxed">
-                Desarrollo de software a medida, automatización e inteligencia de
-                datos para empresas orientadas a la eficiencia operativa.
+                Software a medida, automatizaciones y tableros de control para empresas que buscan ordenar y escalar su operación.
               </p>
             </div>
 
@@ -231,7 +230,7 @@ export default function Footer() {
                     href="#problemas"
                     className="hover:text-[var(--text-primary)] transition-colors"
                   >
-                    Desafíos operativos
+                    Desafíos
                   </a>
                 </li>
                 <li>
@@ -239,7 +238,7 @@ export default function Footer() {
                     href="#soluciones"
                     className="hover:text-[var(--text-primary)] transition-colors"
                   >
-                    Áreas de desarrollo
+                    Soluciones
                   </a>
                 </li>
                 <li>
@@ -247,7 +246,7 @@ export default function Footer() {
                     href="#casos"
                     className="hover:text-[var(--text-primary)] transition-colors"
                   >
-                    Casos de estudio
+                    Casos reales
                   </a>
                 </li>
                 <li>
@@ -255,7 +254,7 @@ export default function Footer() {
                     href="#proceso"
                     className="hover:text-[var(--text-primary)] transition-colors"
                   >
-                    Metodología de trabajo
+                    Metodología
                   </a>
                 </li>
                 <li>
@@ -263,7 +262,7 @@ export default function Footer() {
                     href="#estudio"
                     className="hover:text-[var(--text-primary)] transition-colors"
                   >
-                    Propuesta institucional
+                    Sobre el estudio
                   </a>
                 </li>
               </ul>

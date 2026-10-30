@@ -25,12 +25,11 @@ export default function Hero() {
         delay: 0.1,
       })
         .from(
-          ".hero-title-line",
+          ".hero-title",
           {
             opacity: 0,
             y: 28,
             filter: "blur(8px)",
-            stagger: 0.12,
             duration: 0.75,
           },
           "-=0.35"
@@ -141,21 +140,17 @@ export default function Hero() {
             </span>
           </div>
 
-          <h1 className="font-display text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[var(--text-primary)] leading-[1.1] max-w-3xl mx-auto">
-            <span className="hero-title-line block">Desarrollo de software a medida</span>
-            <span className="hero-title-line block text-[var(--text-secondary)]">y automatización para la operación</span>
-            <span className="hero-title-line block">de su empresa.</span>
+          {/* H1: Máximo 3 líneas en desktop, 4 en mobile */}
+          <h1 className="hero-title font-display text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[var(--text-primary)] leading-[1.14] sm:leading-[1.1] max-w-3xl mx-auto text-balance">
+            Software a medida y automatización para la operación de su empresa.
           </h1>
 
-          <p className="hero-description mt-6 text-base sm:text-lg text-[var(--text-secondary)] max-w-2xl mx-auto leading-relaxed">
-            Diseñamos y construimos sistemas adaptados a sus procesos comerciales
-            y logísticos. Reemplazamos la gestión dispersa en planillas y las
-            limitaciones del software estándar por herramientas desarrolladas
-            para su flujo real de trabajo.
+          <p className="hero-description mt-5 text-base sm:text-lg text-[var(--text-secondary)] max-w-xl mx-auto leading-relaxed text-balance">
+            Reemplazamos planillas desactualizadas y sistemas rígidos por herramientas construidas para su dinámica de trabajo.
           </p>
 
           {/* Rounded Capsule CTAs with Vercel Precision Glow */}
-          <div className="hero-cta-group mt-10 flex flex-col sm:flex-row items-center justify-center gap-3.5">
+          <div className="hero-cta-group mt-9 flex flex-col sm:flex-row items-center justify-center gap-3.5">
             <a
               ref={primaryCtaRef}
               href="#cotizador"

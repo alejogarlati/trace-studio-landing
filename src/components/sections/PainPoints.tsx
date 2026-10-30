@@ -15,41 +15,41 @@ const PROBLEMS = [
   {
     number: "01",
     tag: "Control de inventario",
-    title: "Desfasaje de stock por dispersión de planillas",
+    title: "Stock desfasado entre mostrador, depósito y administración",
     description:
-      "Administrar inventario mediante hojas de cálculo fragmentadas provoca inconsistencias entre las ventas de mostrador, el depósito y la administración, impidiendo conocer el stock real disponible.",
+      "Llevar inventario en varias planillas genera ventas sin mercadería física, diferencias de caja y horas perdidas cruzando datos al cierre del día.",
     resolution:
-      "Centralizamos la información en un sistema web con actualización en tiempo real, registrando ingresos, egresos y responsables de cada operación.",
+      "Centralizamos la información en un sistema web en tiempo real: cada venta, ingreso y egreso queda registrado al instante con su responsable.",
     icon: FileSpreadsheet,
   },
   {
     number: "02",
     tag: "Sistemas estándar",
-    title: "Costos recurrentes en software rígido con funciones que no se utilizan",
+    title: "Sistemas enlatados que cobran por usuario y no se adaptan",
     description:
-      "Los sistemas enlatados imponen estructuras ajenas a la dinámica de su negocio y suelen requerir el pago de abonos mensuales por cada usuario incorporado.",
+      "Obligan a cambiar la forma de trabajar para encajar en el software, mientras las cuotas mensuales aumentan cada vez que entra un empleado nuevo.",
     resolution:
-      "Construimos plataformas propietarias a la medida de su empresa, sin costos de suscripción por usuario.",
+      "Construimos software a medida, propiedad exclusiva de su empresa y sin licencias mensuales ni cargos por usuario.",
     icon: Lock,
   },
   {
     number: "03",
     tag: "Procesos repetitivos",
-    title: "Carga y actualización manual de precios y catálogos",
+    title: "Carga manual de precios, listas de proveedores y catálogo",
     description:
-      "Procesar listas de proveedores en múltiples formatos y trasladar modificaciones artículo por artículo a los canales comerciales consume recursos que deberían destinarse a la venta.",
+      "Copiar y pegar listas de precios en Excel o actualizar artículos uno a uno en la web demora días y multiplica los errores de facturación.",
     resolution:
-      "Automatizamos la ingesta de listas de precios y la sincronización con los canales de venta físicos y digitales.",
+      "Automatizamos el procesamiento de listas y la sincronización directa con los canales de venta en segundos.",
     icon: RefreshCw,
   },
   {
     number: "04",
     tag: "Análisis de rentabilidad",
-    title: "Dificultad para determinar el margen neto real por producto y canal",
+    title: "Decisiones a ciegas sin conocer el margen neto real",
     description:
-      "Las variaciones continuas de costos, comisiones comerciales y gastos logísticos diluyen la visibilidad sobre la rentabilidad real de cada línea de productos.",
+      "Los aumentos de costos, comisiones y fletes hacen que muchos productos se vendan a pérdida sin que la administración lo note a tiempo.",
     resolution:
-      "Consolidamos las fuentes de datos comerciales y contables en tableros analíticos para visualizar márgenes netos y rotación de inventario al día.",
+      "Tableros de control con costos actualizados y márgenes netos por artículo, categoría y punto de venta.",
     icon: BarChart3,
   },
 ];
@@ -208,11 +208,10 @@ export default function PainPoints() {
           </div>
 
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[var(--text-primary)] leading-[1.12]">
-            Cuando la operación crece, los procesos manuales generan sobrecostos.
+            Cuando la operación crece, los procesos manuales frenan el negocio.
           </h2>
           <p className="mt-4 text-base sm:text-lg text-[var(--text-secondary)] leading-relaxed max-w-2xl">
-            Identificamos y resolvemos las limitaciones operativas que generan
-            demoras y pérdida de margen comercial.
+            Planillas desactualizadas, sistemas rígidos y tareas repetitivas que consumen horas y recortan márgenes comerciales.
           </p>
         </div>
 

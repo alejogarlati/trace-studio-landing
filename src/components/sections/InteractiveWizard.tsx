@@ -210,11 +210,10 @@ export default function InteractiveWizard() {
             </span>
           </div>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[var(--text-primary)] leading-[1.12]">
-            Solicitar propuesta técnica y económica
+            Cotizar una solución a medida
           </h2>
           <p className="mt-4 text-base sm:text-lg text-[var(--text-secondary)] leading-relaxed">
-            Seleccione las características de su requerimiento para coordinar
-            una reunión de evaluación inicial.
+            Contanos qué necesitas resolver y te enviamos una estimación inicial de alcance, plazos y costos.
           </p>
         </div>
 
@@ -265,7 +264,7 @@ export default function InteractiveWizard() {
                 {step === 1 && (
                   <div className="space-y-6">
                     <h3 className="font-display text-xl sm:text-2xl font-bold text-[var(--text-primary)]">
-                      1. ¿Qué requerimiento operativo busca resolver?
+                      1. ¿Qué problema necesitas resolver?
                     </h3>
 
                     <div className="grid grid-cols-1 gap-3">
@@ -333,7 +332,7 @@ export default function InteractiveWizard() {
                 {step === 2 && (
                   <div className="space-y-6">
                     <h3 className="font-display text-xl sm:text-2xl font-bold text-[var(--text-primary)]">
-                      2. ¿Cuál describe mejor la situación actual de su empresa?
+                      2. ¿Cómo lo gestionan hoy?
                     </h3>
 
                     <div className="grid grid-cols-1 gap-3">
@@ -397,7 +396,7 @@ export default function InteractiveWizard() {
                 {step === 3 && (
                   <div className="space-y-6">
                     <h3 className="font-display text-xl sm:text-2xl font-bold text-[var(--text-primary)]">
-                      3. ¿En qué plazo estima iniciar la implementación?
+                      3. ¿Para cuándo lo necesitan operativo?
                     </h3>
 
                     <div className="grid grid-cols-1 gap-3">
@@ -461,7 +460,7 @@ export default function InteractiveWizard() {
                 {step === 4 && (
                   <form onSubmit={handleFormSubmit} className="space-y-6">
                     <h3 className="font-display text-xl sm:text-2xl font-bold text-[var(--text-primary)]">
-                      4. Ingrese los datos de contacto de su empresa
+                      4. Datos de contacto para enviar la propuesta
                     </h3>
 
                     {/* Summary Box */}
@@ -470,7 +469,7 @@ export default function InteractiveWizard() {
                         className="font-mono uppercase tracking-wider mb-1"
                         style={{ color: "var(--color-accent-text)" }}
                       >
-                        REQUERIMIENTO SELECCIONADO:
+                        RESUMEN DEL REQUERIMIENTO:
                       </div>
                       <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-[var(--text-secondary)]">
                         <div>

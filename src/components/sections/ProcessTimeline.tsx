@@ -8,34 +8,34 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 const TRACE_STEPS = [
   {
     number: "01",
-    title: "Diagnóstico y relevamiento operativo",
-    subtitle: "Análisis inicial",
+    title: "Diagnóstico operativo",
+    subtitle: "Semana 1",
     description:
-      "Analizamos los procesos actuales, identificamos los puntos críticos de la operación y elaboramos una propuesta técnica con alcance, cronograma y presupuesto definidos.",
+      "Revisamos sus procesos actuales, detectamos cuellos de botella y definimos una propuesta con alcance, plazos y costos cerrados.",
     icon: Compass,
   },
   {
     number: "02",
-    title: "Arquitectura y diseño funcional",
-    subtitle: "Estructura y flujos",
+    title: "Diseño de flujos y pantallas",
+    subtitle: "Semana 2",
     description:
-      "Diseñamos la estructura de datos y las interfaces de usuario antes del desarrollo, priorizando la ergonomía y la velocidad de operación del personal.",
+      "Definimos la estructura de datos y las interfaces de usuario antes de programar, priorizando una carga de datos ágil y sin confusiones.",
     icon: PenTool,
   },
   {
     number: "03",
-    title: "Desarrollo e iteración continua",
-    subtitle: "Entregas graduales",
+    title: "Desarrollo y entregas parciales",
+    subtitle: "Semanas 3 a 6",
     description:
-      "Construimos el software mediante entregas parciales funcionales con revisiones periódicas, permitiendo validar cada módulo antes del despliegue final.",
+      "Construimos el sistema en entregas funcionales periódicas para que pruebe y valide cada módulo en un entorno de pruebas real.",
     icon: Layers,
   },
   {
     number: "04",
-    title: "Despliegue y capacitación",
-    subtitle: "Puesta en marcha",
+    title: "Puesta en marcha y capacitación",
+    subtitle: "Entrega final",
     description:
-      "Realizamos la puesta en producción, capacitamos al equipo en el uso de la herramienta y brindamos soporte técnico continuo.",
+      "Migramos sus datos al nuevo sistema, capacitamos al personal en su uso y brindamos soporte técnico continuo post-lanzamiento.",
     icon: Rocket,
   },
 ];
@@ -182,12 +182,10 @@ export default function ProcessTimeline() {
           </div>
 
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[var(--text-primary)] leading-[1.12]">
-            Un proceso estructurado desde el diagnóstico hasta la puesta en
-            producción.
+            Cómo trabajamos: del diagnóstico al sistema en producción.
           </h2>
           <p className="mt-4 text-base sm:text-lg text-[var(--text-secondary)] leading-relaxed max-w-2xl">
-            Definimos etapas claras y entregas por módulos funcionales para
-            garantizar previsibilidad en plazos, costos y resultados.
+            Entregas por módulos funcionales para saber con exactitud qué se construye, cuánto cuesta y cuándo se entrega.
           </p>
         </div>
 

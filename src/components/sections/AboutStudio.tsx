@@ -12,21 +12,21 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const PILLARS = [
   {
-    title: "Rigor técnico y arquitectura sólida",
+    title: "Criterio de ingeniería",
     description:
-      "Formación académica en ingeniería (UTN) y aplicación de estándares modernos en desarrollo de software y bases de datos.",
+      "Formación académica en ingeniería (UTN) y estándares sólidos en bases de datos para soportar el crecimiento de su empresa.",
     icon: ShieldCheck,
   },
   {
-    title: "Interlocución técnica directa",
+    title: "Trato directo con el especialista",
     description:
-      "Comunicación fluida y directa entre los responsables de la empresa y los ingenieros a cargo del proyecto, sin intermediarios comerciales.",
+      "Comunicación fluida y directa con el ingeniero a cargo del desarrollo. Sin intermediarios comerciales ni demoras innecesarias.",
     icon: MessageSquareCode,
   },
   {
-    title: "Activos tecnológicos propios",
+    title: "Software propio sin licencias",
     description:
-      "Desarrollamos herramientas propietarias para su empresa, sin dependencia de licencias mensuales recurrentes por usuario.",
+      "Desarrollamos herramientas propietarias para su empresa: código y datos le pertenecen, sin abonos mensuales por usuario.",
     icon: KeyRound,
   },
 ];
@@ -86,27 +86,20 @@ export default function AboutStudio() {
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full liquid-pill text-xs font-mono border border-[#11ffa1]/20">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#11ffa1] shadow-[0_0_8px_#11ffa1]" />
                 <span className="text-[#11ffa1] tracking-wider uppercase">
-                  05 · PROPUESTA INSTITUCIONAL
+                  05 · SOBRE EL ESTUDIO
                 </span>
               </div>
 
               <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[var(--text-primary)] leading-[1.12]">
-                Ingeniería de software con enfoque en la eficiencia operativa.
+                Ingeniería de software enfocada en hacer rendir la operación.
               </h2>
 
               <p className="text-base sm:text-lg text-[var(--text-secondary)] leading-relaxed">
-                Trace Studio surge como alternativa para empresas que requieren
-                soluciones tecnológicas específicas: aquellas que se encuentran
-                limitadas por la rigidez de los sistemas estándar o por los tiempos
-                extensos de las agencias tradicionales de desarrollo.
+                Trace Studio nació para empresas que no encajan en los sistemas enlatados y buscan evitar los sobrecostos y las demoras de las agencias tradicionales.
               </p>
 
               <p className="text-base sm:text-lg text-[var(--text-secondary)] leading-relaxed">
-                Combinamos formación técnica en ingeniería (UTN) con experiencia
-                directa en procesos empresariales. Diseñamos herramientas
-                propietarias orientadas a reducir tiempos de gestión, garantizar
-                la integridad de los datos y asegurar que el software pertenezca
-                íntegramente a la empresa.
+                Trabajamos con formación técnica en ingeniería (UTN) y foco directo en los números de su negocio. Construimos herramientas que eliminan horas de carga manual, resuelven errores de stock y quedan en propiedad definitiva de su empresa.
               </p>
             </div>
 
