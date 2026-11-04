@@ -30,17 +30,17 @@ export default function ScrollTextReveal() {
 
       const totalItems = words.length;
 
-      // Estado inicial: primera palabra visible en el centro, las demás abajo
+      // Estado inicial: primera palabra nítida en el centro, las demás abajo y desenfocadas
       words.forEach((word, idx) => {
         if (!word) return;
         if (idx === 0) {
           gsap.set(word, { y: 0, opacity: 1, filter: "blur(0px)" });
         } else {
-          gsap.set(word, { y: 45, opacity: 0, filter: "blur(6px)" });
+          gsap.set(word, { y: 36, opacity: 0, filter: "blur(8px)" });
         }
       });
 
-      // Timeline vinculada al scroll: solo se ancla cuando el inicio de la sección llega exactamente a la parte superior de la pantalla
+      // Timeline vinculada al scroll
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
@@ -53,7 +53,7 @@ export default function ScrollTextReveal() {
         },
       });
 
-      // Transiciones escalonadas limpias entre las palabras
+      // Transiciones cinematográficas escalonadas entre palabras
       for (let i = 0; i < totalItems - 1; i++) {
         const current = words[i];
         const next = words[i + 1];
@@ -61,11 +61,11 @@ export default function ScrollTextReveal() {
         tl.to(
           current,
           {
-            y: -45,
+            y: -36,
             opacity: 0,
-            filter: "blur(6px)",
+            filter: "blur(8px)",
             duration: 1,
-            ease: "power1.inOut",
+            ease: "power2.inOut",
           },
           `step-${i}`
         );
@@ -77,7 +77,7 @@ export default function ScrollTextReveal() {
             opacity: 1,
             filter: "blur(0px)",
             duration: 1,
-            ease: "power1.inOut",
+            ease: "power2.inOut",
           },
           `step-${i}`
         );
@@ -96,7 +96,7 @@ export default function ScrollTextReveal() {
         );
       }
 
-      // Recalcular posiciones globales de ScrollTrigger para garantizar que no haya desfases de pin
+      // Recalcular posiciones de ScrollTrigger
       ScrollTrigger.sort();
       ScrollTrigger.refresh();
     },
@@ -109,43 +109,67 @@ export default function ScrollTextReveal() {
       id="enfoque"
       className="relative w-full overflow-visible bg-[var(--bg-primary)]"
     >
-      {/* Contenedor que se ancla a pantalla completa solo cuando la sección entra en foco */}
+      {/* Contenedor que se ancla a pantalla completa durante el scroll */}
       <div
         ref={pinnedRef}
         className="w-full h-screen flex flex-col justify-center items-center px-6 overflow-hidden select-none relative"
       >
-        {/* Resplandor ambiental de fondo */}
+        {/* =========================================================
+            Atmósfera y Encuadre Cinemático Widescreen
+            ========================================================= */}
+        {/* Borde superior del encuadre con brillo atenuado */}
+        <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
+
+        {/* Haz de luz anamórfico horizontal centrado detrás del texto */}
+        <div className="absolute top-1/2 inset-x-0 -translate-y-1/2 h-[1px] bg-gradient-to-r from-transparent via-[#11ffa1]/25 to-transparent pointer-events-none" />
+        <div className="absolute top-1/2 inset-x-1/4 -translate-y-1/2 h-[2px] bg-gradient-to-r from-transparent via-[#11ffa1]/40 to-transparent blur-sm pointer-events-none" />
+
+        {/* Resplandor ambiental esmeralda profundo */}
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[560px] h-[560px] rounded-full blur-[160px] pointer-events-none opacity-35"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[320px] rounded-full blur-[140px] pointer-events-none opacity-30"
           style={{ background: "var(--orb-primary)" }}
           aria-hidden="true"
         />
 
-        <div className="relative z-10 max-w-7xl mx-auto w-full text-center flex flex-col items-center">
-          {/* Badge superior */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full liquid-pill text-xs font-mono mb-8 border border-[#11ffa1]/20">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#11ffa1] shadow-[0_0_8px_#11ffa1]" />
-            <span className="text-[#11ffa1] tracking-wider uppercase">
-              03 · PARA QUIÉN TRABAJAMOS
-            </span>
-          </div>
+        {/* Viñeta radial oscura para concentrar la vista en el centro */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(8,8,10,0.85)_100%)] pointer-events-none" />
 
-          {/* Tipografía principal: Fija + Dinámica */}
+        {/* Borde inferior del encuadre */}
+        <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
+
+        {/* Marcas de telemetría y encuadre cinematográfico en las esquinas */}
+        <div className="absolute top-8 left-6 sm:left-12 flex items-center gap-2 font-mono text-[10px] tracking-[0.25em] text-white/20 select-none">
+          <span className="text-[#11ffa1]/40">+</span>
+          <span>TRACE // ENFOQUE</span>
+        </div>
+
+        <div className="absolute top-8 right-6 sm:right-12 font-mono text-[10px] tracking-[0.25em] text-white/20 select-none">
+          <span>[ 03 ]</span>
+        </div>
+
+        <div className="absolute bottom-8 left-6 sm:left-12 font-mono text-[10px] tracking-[0.25em] text-white/20 select-none hidden sm:block">
+          <span>ALCANCE OPERATIVO</span>
+        </div>
+
+        {/* =========================================================
+            Centro de Atención: Tipografía Monumental (Sin párrafos ni badges)
+            ========================================================= */}
+        <div className="relative z-10 max-w-7xl mx-auto w-full flex flex-col items-center justify-center">
           <div className="flex flex-col lg:flex-row items-center justify-center gap-2.5 lg:gap-4 text-center lg:text-left">
-            {/* Parte fija */}
-            <span className="font-display text-xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold tracking-tight text-[var(--text-secondary)] whitespace-nowrap shrink-0">
+            {/* Parte fija: nunca se parte en 2 líneas */}
+            <span className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold tracking-tight bg-gradient-to-b from-white via-white/90 to-white/60 bg-clip-text text-transparent whitespace-nowrap shrink-0">
               Software a medida para
             </span>
 
-            {/* Parte móvil: contenedor con altura fija para evitar saltos */}
-            <div className="relative h-10 sm:h-12 md:h-14 lg:h-14 xl:h-16 2xl:h-20 w-full lg:w-auto lg:min-w-[420px] xl:min-w-[530px] 2xl:min-w-[620px] flex items-center justify-center lg:justify-start">
+            {/* Parte dinámica: transiciones verticales suaves en verde neón */}
+            <div className="relative h-12 sm:h-14 md:h-16 lg:h-16 xl:h-20 2xl:h-24 w-full lg:w-auto lg:min-w-[440px] xl:min-w-[560px] 2xl:min-w-[660px] flex items-center justify-center lg:justify-start">
               {TARGET_AUDIENCES.map((text, idx) => (
                 <div
                   key={idx}
                   ref={(el) => {
                     wordsRef.current[idx] = el;
                   }}
-                  className="absolute font-display text-xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold tracking-tight text-[#11ffa1] drop-shadow-[0_0_25px_rgba(17,255,161,0.35)] whitespace-nowrap"
+                  className="absolute font-display text-2xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-[#11ffa1] drop-shadow-[0_0_35px_rgba(17,255,161,0.45)] whitespace-nowrap"
                 >
                   {text}
                 </div>
@@ -153,18 +177,21 @@ export default function ScrollTextReveal() {
             </div>
           </div>
 
-          {/* Bajada sobria y honesta */}
-          <p className="mt-10 text-base sm:text-lg text-[var(--text-muted)] max-w-xl text-center leading-relaxed">
-            Desarrollamos herramientas adaptadas a la escala y la lógica operativa de cada negocio, sin imponer procesos enlatados ni cobrar licencias por usuario.
-          </p>
-
-          {/* Barra de progreso sutil */}
-          <div className="mt-12 w-48 h-[2px] bg-[var(--glass-border)] rounded-full overflow-hidden">
-            <div
-              ref={progressBarRef}
-              className="h-full w-full bg-[#11ffa1] shadow-[0_0_10px_#11ffa1] origin-left"
-              style={{ transform: "scaleX(0.2)" }}
-            />
+          {/* Telemetría de progreso cinematográfica inferior */}
+          <div className="mt-14 sm:mt-16 flex items-center gap-4">
+            <span className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] text-[#11ffa1]/60 uppercase">
+              FOCUS
+            </span>
+            <div className="w-36 sm:w-56 h-[1.5px] bg-white/[0.08] relative overflow-hidden rounded-full">
+              <div
+                ref={progressBarRef}
+                className="h-full w-full bg-gradient-to-r from-[#11ffa1]/50 to-[#11ffa1] shadow-[0_0_8px_#11ffa1] origin-left"
+                style={{ transform: "scaleX(0.2)" }}
+              />
+            </div>
+            <span className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] text-white/30 uppercase">
+              01—05
+            </span>
           </div>
         </div>
       </div>
