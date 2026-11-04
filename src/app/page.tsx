@@ -3,7 +3,7 @@ import Hero from "@/components/sections/Hero";
 import HeroCurveSeparator from "@/components/ui/HeroCurveSeparator";
 import PainPoints from "@/components/sections/PainPoints";
 import SolutionsTabs from "@/components/sections/SolutionsTabs";
-import CaseStudiesSlider from "@/components/sections/CaseStudiesSlider";
+import ScrollTextReveal from "@/components/sections/ScrollTextReveal";
 import ProcessTimeline from "@/components/sections/ProcessTimeline";
 import AboutStudio from "@/components/sections/AboutStudio";
 import InteractiveWizard from "@/components/sections/InteractiveWizard";
@@ -17,7 +17,7 @@ export default function Home() {
       <HeroCurveSeparator />
       <PainPoints />
       <SolutionsTabs />
-      <CaseStudiesSlider />
+      <ScrollTextReveal />
       <ProcessTimeline />
       <AboutStudio />
       <InteractiveWizard />

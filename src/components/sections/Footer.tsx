@@ -243,10 +243,10 @@ export default function Footer() {
                 </li>
                 <li>
                   <a
-                    href="#casos"
+                    href="#enfoque"
                     className="hover:text-[var(--text-primary)] transition-colors"
                   >
-                    Casos reales
+                    Para quién trabajamos
                   </a>
                 </li>
                 <li>

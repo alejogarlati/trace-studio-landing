@@ -83,10 +83,10 @@ export default function Navbar() {
             Soluciones
           </a>
           <a
-            href="#casos"
+            href="#enfoque"
             className="hover:text-[var(--text-primary)] transition-colors"
           >
-            Casos de estudio
+            Enfoque
           </a>
           <a
             href="#proceso"
@@ -126,7 +126,7 @@ export default function Navbar() {
             href="#cotizador"
             className="inline-flex items-center gap-1.5 text-xs font-semibold px-4 py-2.5 rounded-full bg-[#11ffa1] hover:bg-[#00e58d] text-[#08080a] shadow-[0_0_20px_rgba(17,255,161,0.25)] transition-all"
           >
-            Solicitar cotización
+            Consultar viabilidad
             <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
         </div>
@@ -178,11 +178,11 @@ export default function Navbar() {
             Soluciones
           </a>
           <a
-            href="#casos"
+            href="#enfoque"
             onClick={() => setMobileMenuOpen(false)}
             className="hover:text-[var(--text-primary)] py-1.5"
           >
-            Casos de estudio
+            Enfoque
           </a>
           <a
             href="#proceso"
@@ -203,7 +203,7 @@ export default function Navbar() {
             onClick={() => setMobileMenuOpen(false)}
             className="inline-flex items-center justify-center gap-2 text-xs font-semibold px-4 py-3 rounded-full bg-[#11ffa1] text-[#08080a] mt-1"
           >
-            Solicitar cotización
+            Consultar viabilidad
             <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
         </div>

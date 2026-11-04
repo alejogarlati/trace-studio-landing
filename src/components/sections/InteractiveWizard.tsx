@@ -593,7 +593,7 @@ export default function InteractiveWizard() {
                           type="submit"
                           className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#11ffa1] hover:bg-[#00e58d] text-[#08080a] font-semibold text-sm shadow-[0_0_25px_rgba(17,255,161,0.25)] transition-all cursor-pointer"
                         >
-                          Generar solicitud
+                          Consultar viabilidad
                           <Send className="w-4 h-4" />
                         </button>
                       </div>

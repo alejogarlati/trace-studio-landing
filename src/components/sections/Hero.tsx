@@ -142,7 +142,7 @@ export default function Hero() {
           <div className="hero-badge inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full liquid-pill text-xs font-mono mb-6 border border-[#11ffa1]/20 shadow-[0_0_20px_rgba(17,255,161,0.08)]">
             <span className="w-1.5 h-1.5 rounded-full bg-[#11ffa1] shadow-[0_0_8px_#11ffa1] animate-pulse" />
             <span className="text-[#11ffa1] tracking-wider uppercase">
-              Ingeniería de Software & Automatización
+              Desarrollo de Software & Automatización
             </span>
           </div>
 
@@ -163,7 +163,7 @@ export default function Hero() {
               className="relative group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-[#11ffa1] hover:bg-[#00e58d] text-[#08080a] font-semibold text-sm shadow-[0_0_25px_rgba(17,255,161,0.3)] transition-all overflow-hidden"
             >
               <span className="relative z-10 flex items-center gap-2">
-                Solicitar diagnóstico operativo
+                Consultar viabilidad
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </span>
               <span
@@ -172,10 +172,10 @@ export default function Hero() {
               />
             </a>
             <a
-              href="#casos"
+              href="#enfoque"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full liquid-pill text-[var(--text-primary)] hover:border-[#11ffa1]/40 hover:bg-white/[0.04] font-medium text-sm transition-all"
             >
-              Ver casos de desarrollo
+              Para quién trabajamos
             </a>
           </div>
         </div>

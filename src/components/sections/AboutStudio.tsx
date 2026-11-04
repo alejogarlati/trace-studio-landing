@@ -12,21 +12,21 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const PILLARS = [
   {
-    title: "Criterio de ingeniería",
+    title: "Criterio técnico y práctico",
     description:
-      "Formación académica en ingeniería (UTN) y estándares sólidos en bases de datos para soportar el crecimiento de su empresa.",
+      "Desarrollamos sobre arquitecturas web modernas y bases de datos relacionales sólidas, preparadas para soportar la carga diaria de su empresa.",
     icon: ShieldCheck,
   },
   {
-    title: "Trato directo con el especialista",
+    title: "Trato directo con quien programa",
     description:
-      "Comunicación fluida y directa con el ingeniero a cargo del desarrollo. Sin intermediarios comerciales ni demoras innecesarias.",
+      "Comunicación fluida y directa con el equipo técnico que construye la herramienta. Sin intermediarios comerciales ni mensajes distorsionados.",
     icon: MessageSquareCode,
   },
   {
     title: "Software propio sin licencias",
     description:
-      "Desarrollamos herramientas propietarias para su empresa: código y datos le pertenecen, sin abonos mensuales por usuario.",
+      "Construimos herramientas que quedan en propiedad de su empresa: código y datos le pertenecen por completo, sin costos mensuales por usuario.",
     icon: KeyRound,
   },
 ];
@@ -91,7 +91,7 @@ export default function AboutStudio() {
               </div>
 
               <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[var(--text-primary)] leading-[1.12]">
-                Ingeniería de software enfocada en hacer rendir la operación.
+                Desarrollo de software enfocado en hacer rendir la operación.
               </h2>
 
               <p className="text-base sm:text-lg text-[var(--text-secondary)] leading-relaxed">
@@ -99,7 +99,7 @@ export default function AboutStudio() {
               </p>
 
               <p className="text-base sm:text-lg text-[var(--text-secondary)] leading-relaxed">
-                Trabajamos con formación técnica en ingeniería (UTN) y foco directo en los números de su negocio. Construimos herramientas que eliminan horas de carga manual, resuelven errores de stock y quedan en propiedad definitiva de su empresa.
+                Trabajamos con enfoque técnico directo en la operación y los números de su negocio. Construimos herramientas que eliminan horas de carga manual, resuelven errores de stock y quedan en propiedad definitiva de su empresa.
               </p>
             </div>
 
