@@ -19,39 +19,44 @@ export default function Hero() {
 
       tl.from(".hero-badge", {
         opacity: 0,
-        y: -12,
-        scale: 0.94,
-        duration: 0.6,
+        y: 16,
+        filter: "blur(6px)",
+        duration: 0.55,
+        ease: "power2.in",
         delay: 0.1,
       })
         .from(
           ".hero-title",
           {
             opacity: 0,
-            y: 28,
-            filter: "blur(8px)",
-            duration: 0.75,
+            y: 24,
+            filter: "blur(6px)",
+            duration: 0.55,
+            ease: "power2.in",
           },
-          "-=0.35"
+          "-=0.25"
         )
         .from(
           ".hero-description",
           {
             opacity: 0,
             y: 20,
-            filter: "blur(4px)",
-            duration: 0.7,
+            filter: "blur(6px)",
+            duration: 0.55,
+            ease: "power2.in",
           },
-          "-=0.4"
+          "-=0.25"
         )
         .from(
           ".hero-cta-group",
           {
             opacity: 0,
             y: 16,
-            duration: 0.6,
+            filter: "blur(4px)",
+            duration: 0.55,
+            ease: "power2.in",
           },
-          "-=0.45"
+          "-=0.25"
         )
         .from(
           ".hero-scroll-indicator",

@@ -37,14 +37,14 @@ export default function ScrollTextReveal() {
           textContainer,
           {
             opacity: 0,
-            y: 30,
-            filter: "blur(10px)",
+            y: 24,
+            filter: "blur(8px)",
           },
           {
             opacity: 1,
             y: 0,
             filter: "blur(0px)",
-            duration: 0.9,
+            duration: 0.55,
             ease: "power2.in",
             scrollTrigger: {
               trigger: section,
@@ -131,10 +131,6 @@ export default function ScrollTextReveal() {
             ========================================================= */}
         {/* Borde superior del encuadre con brillo atenuado */}
         <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
-
-        {/* Haz de luz anamórfico horizontal centrado detrás del texto */}
-        <div className="absolute top-1/2 inset-x-0 -translate-y-1/2 h-[1px] bg-gradient-to-r from-transparent via-[#11ffa1]/25 to-transparent pointer-events-none" />
-        <div className="absolute top-1/2 inset-x-1/4 -translate-y-1/2 h-[2px] bg-gradient-to-r from-transparent via-[#11ffa1]/40 to-transparent blur-sm pointer-events-none" />
 
         {/* Resplandor ambiental esmeralda profundo */}
         <div

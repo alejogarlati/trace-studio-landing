@@ -1,7 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 import {
   Layers,
   BarChart2,
@@ -12,6 +15,8 @@ import {
 } from "lucide-react";
 import PngSlot from "@/components/ui/PngSlot";
 import SpotlightCard from "@/components/ui/SpotlightCard";
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 interface SolutionItem {
   id: string;
@@ -99,8 +104,64 @@ const SOLUTIONS: SolutionItem[] = [
 
 export default function SolutionsTabs() {
   const [activeTabId, setActiveTabId] = useState<string>(SOLUTIONS[0].id);
+  const sectionRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
+
   const activeSolution =
     SOLUTIONS.find((s) => s.id === activeTabId) || SOLUTIONS[0];
+
+  useGSAP(
+    () => {
+      if (headerRef.current) {
+        gsap.fromTo(
+          headerRef.current.children,
+          {
+            opacity: 0,
+            y: 24,
+            filter: "blur(6px)",
+          },
+          {
+            opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
+            duration: 0.55,
+            ease: "power2.in",
+            stagger: 0.08,
+            scrollTrigger: {
+              trigger: headerRef.current,
+              start: "top 82%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      }
+
+      if (cardRef.current) {
+        gsap.fromTo(
+          cardRef.current,
+          {
+            opacity: 0,
+            y: 24,
+            filter: "blur(6px)",
+          },
+          {
+            opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
+            duration: 0.55,
+            ease: "power2.in",
+            scrollTrigger: {
+              trigger: cardRef.current,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      }
+    },
+    { scope: sectionRef }
+  );
 
   const handleSelectForQuote = (wizardOptionId: string) => {
     if (typeof window !== "undefined") {
@@ -114,6 +175,7 @@ export default function SolutionsTabs() {
 
   return (
     <section
+      ref={sectionRef}
       id="soluciones"
       className="relative py-24 sm:py-32 px-6 overflow-hidden"
     >
@@ -126,7 +188,7 @@ export default function SolutionsTabs() {
 
       <div className="relative z-10 max-w-6xl mx-auto">
         {/* Header */}
-        <div className="max-w-3xl mb-12">
+        <div ref={headerRef} className="max-w-3xl mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full liquid-pill text-xs font-mono mb-4">
             <span
               className="w-2 h-2 rounded-full"
@@ -170,7 +232,8 @@ export default function SolutionsTabs() {
         </div>
 
         {/* Active Solution Spotlight Card */}
-        <SpotlightCard className="p-7 sm:p-10 lg:p-12">
+        <div ref={cardRef}>
+          <SpotlightCard className="p-7 sm:p-10 lg:p-12">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeSolution.id}
@@ -242,6 +305,7 @@ export default function SolutionsTabs() {
             </motion.div>
           </AnimatePresence>
         </SpotlightCard>
+        </div>
       </div>
     </section>
   );

@@ -1,7 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 import {
   CheckCircle2,
   ArrowRight,
@@ -16,6 +19,8 @@ import {
   HelpCircle,
 } from "lucide-react";
 import SpotlightCard from "@/components/ui/SpotlightCard";
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const STEP_1_OPTIONS = [
   {
@@ -109,6 +114,62 @@ export default function InteractiveWizard() {
   const [challenge, setChallenge] = useState<string>("");
   const [submitted, setSubmitted] = useState<boolean>(false);
 
+  const sectionRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      if (headerRef.current) {
+        gsap.fromTo(
+          headerRef.current.children,
+          {
+            opacity: 0,
+            y: 24,
+            filter: "blur(6px)",
+          },
+          {
+            opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
+            duration: 0.55,
+            ease: "power2.in",
+            stagger: 0.08,
+            scrollTrigger: {
+              trigger: headerRef.current,
+              start: "top 82%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      }
+
+      if (cardRef.current) {
+        gsap.fromTo(
+          cardRef.current,
+          {
+            opacity: 0,
+            y: 24,
+            filter: "blur(6px)",
+          },
+          {
+            opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
+            duration: 0.55,
+            ease: "power2.in",
+            scrollTrigger: {
+              trigger: cardRef.current,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      }
+    },
+    { scope: sectionRef }
+  );
+
   useEffect(() => {
     const handlePreselect = (e: Event) => {
       const customEvent = e as CustomEvent<{ solutionId?: string }>;
@@ -185,6 +246,7 @@ export default function InteractiveWizard() {
 
   return (
     <section
+      ref={sectionRef}
       id="cotizador"
       className="relative py-24 sm:py-32 px-6 overflow-hidden"
     >
@@ -199,7 +261,7 @@ export default function InteractiveWizard() {
 
       <div className="relative z-10 max-w-4xl mx-auto">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
+        <div ref={headerRef} className="text-center max-w-2xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full liquid-pill text-xs font-mono mb-4">
             <span
               className="w-2 h-2 rounded-full"
@@ -218,7 +280,8 @@ export default function InteractiveWizard() {
         </div>
 
         {/* Spotlight Wizard Container */}
-        <SpotlightCard className="p-7 sm:p-10 lg:p-12">
+        <div ref={cardRef}>
+          <SpotlightCard className="p-7 sm:p-10 lg:p-12">
           {/* Progress Header */}
           <div className="mb-8">
             <div className="flex items-center justify-between text-xs font-mono mb-3">
@@ -688,6 +751,7 @@ export default function InteractiveWizard() {
             )}
           </AnimatePresence>
         </SpotlightCard>
+        </div>
       </div>
     </section>
   );

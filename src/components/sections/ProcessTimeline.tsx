@@ -45,6 +45,7 @@ const TRACE_STEPS = [
 
 export default function ProcessTimeline() {
   const pinWrapperRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
   const [activeStep, setActiveStep] = useState<number>(0);
   const itemsRef = useRef<(HTMLDivElement | null)[]>([]);
   const progressBarRef = useRef<HTMLDivElement>(null);
@@ -53,6 +54,31 @@ export default function ProcessTimeline() {
     if (typeof window === "undefined") return;
 
     gsap.registerPlugin(ScrollTrigger);
+
+    // Animación de entrada con fade-in y ease-in para el header
+    if (headerRef.current) {
+      gsap.fromTo(
+        headerRef.current.children,
+        {
+          opacity: 0,
+          y: 24,
+          filter: "blur(6px)",
+        },
+        {
+          opacity: 1,
+          y: 0,
+          filter: "blur(0px)",
+          duration: 0.55,
+          ease: "power2.in",
+          stagger: 0.08,
+          scrollTrigger: {
+            trigger: headerRef.current,
+            start: "top 82%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    }
 
     const pinWrapper = pinWrapperRef.current;
     if (!pinWrapper) return;
@@ -173,7 +199,7 @@ export default function ProcessTimeline() {
 
       <div className="relative z-10 max-w-5xl mx-auto w-full">
         {/* Header Superior: Claim y Subclaim alineados a la izquierda (Scrollean libremente) */}
-        <div className="max-w-3xl mb-14 sm:mb-16 text-left">
+        <div ref={headerRef} className="max-w-3xl mb-14 sm:mb-16 text-left">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full liquid-pill text-xs font-mono mb-4">
             <span
               className="w-2 h-2 rounded-full"

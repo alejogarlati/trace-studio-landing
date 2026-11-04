@@ -36,31 +36,50 @@ export default function AboutStudio() {
 
   useGSAP(
     () => {
-      // Entrada escalonada de la tarjeta principal y los pilares institucionales con ScrollTrigger
-      gsap.from(".about-main-card", {
-        opacity: 0,
-        y: 35,
-        duration: 0.8,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".about-main-card",
-          start: "top 85%",
-          toggleActions: "play none none none",
+      // Entrada con fade-in y ease-in para la tarjeta principal
+      gsap.fromTo(
+        ".about-main-card",
+        {
+          opacity: 0,
+          y: 24,
+          filter: "blur(6px)",
         },
-      });
+        {
+          opacity: 1,
+          y: 0,
+          filter: "blur(0px)",
+          duration: 0.55,
+          ease: "power2.in",
+          scrollTrigger: {
+            trigger: ".about-main-card",
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
 
-      gsap.from(".about-pillar-card", {
-        opacity: 0,
-        y: 30,
-        stagger: 0.15,
-        duration: 0.7,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".about-pillars-grid",
-          start: "top 88%",
-          toggleActions: "play none none none",
+      // Entrada con fade-in y ease-in para los pilares
+      gsap.fromTo(
+        ".about-pillar-card",
+        {
+          opacity: 0,
+          y: 24,
+          filter: "blur(6px)",
         },
-      });
+        {
+          opacity: 1,
+          y: 0,
+          filter: "blur(0px)",
+          stagger: 0.08,
+          duration: 0.55,
+          ease: "power2.in",
+          scrollTrigger: {
+            trigger: ".about-pillars-grid",
+            start: "top 88%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
     },
     { scope: containerRef }
   );
