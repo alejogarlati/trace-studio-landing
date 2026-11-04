@@ -1,9 +1,12 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { Compass, PenTool, Layers, Rocket } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const TRACE_STEPS = [
   {
@@ -46,7 +49,7 @@ export default function ProcessTimeline() {
   const itemsRef = useRef<(HTMLDivElement | null)[]>([]);
   const progressBarRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useGSAP(() => {
     if (typeof window === "undefined") return;
 
     gsap.registerPlugin(ScrollTrigger);
@@ -54,7 +57,7 @@ export default function ProcessTimeline() {
     const pinWrapper = pinWrapperRef.current;
     if (!pinWrapper) return;
 
-    const ctx = gsap.context(() => {
+
       const items = itemsRef.current.filter(Boolean);
       const totalSteps = TRACE_STEPS.length;
 
@@ -149,12 +152,12 @@ export default function ProcessTimeline() {
           `step-${i}`
         );
       }
-    }, pinWrapperRef);
+    }, { scope: pinWrapperRef });
 
-    return () => {
-      ctx.revert();
-    };
-  }, []);
+
+
+
+
 
   return (
     <section

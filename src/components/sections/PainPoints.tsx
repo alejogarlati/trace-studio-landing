@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import {
   FileSpreadsheet,
   Lock,
@@ -10,6 +10,9 @@ import {
 } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const PROBLEMS = [
   {
@@ -61,7 +64,7 @@ export default function PainPoints() {
   const progressBarRef = useRef<HTMLDivElement>(null);
   const spotlightRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useGSAP(() => {
     if (typeof window === "undefined") return;
 
     gsap.registerPlugin(ScrollTrigger);
@@ -69,7 +72,7 @@ export default function PainPoints() {
     const pinWrapper = pinWrapperRef.current;
     if (!pinWrapper) return;
 
-    const ctx = gsap.context(() => {
+
       const items = itemsRef.current.filter(Boolean);
       const totalSteps = PROBLEMS.length;
 
@@ -175,12 +178,12 @@ export default function PainPoints() {
           `step-${i}`
         );
       }
-    }, pinWrapperRef);
+    }, { scope: pinWrapperRef });
 
-    return () => {
-      ctx.revert();
-    };
-  }, []);
+
+
+
+
 
   return (
     <section
