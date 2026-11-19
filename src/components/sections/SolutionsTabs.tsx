@@ -26,7 +26,7 @@ interface SolutionItem {
   title: string;
   description: string;
   points: string[];
-  pngPath: string;
+  pngPath?: string;
   pngLabel: string;
   icon: React.ComponentType<{ className?: string; style?: React.CSSProperties }>;
 }
@@ -45,8 +45,7 @@ const SOLUTIONS: SolutionItem[] = [
       "Permisos y niveles de visualización segmentados por rol.",
       "Registro de auditoría con fecha, hora y responsable de cada movimiento.",
     ],
-    pngPath: "/images/soluciones/solucion-01.png",
-    pngLabel: "Gráfica PNG · Sistema de Gestión",
+    pngLabel: "Sistema de Gestión",
     icon: Layers,
   },
   {
@@ -62,8 +61,7 @@ const SOLUTIONS: SolutionItem[] = [
       "Control de rotación de mercadería y capital inmovilizado en depósito.",
       "Reportes inmediatos de cobranzas y cuentas corrientes pendientes.",
     ],
-    pngPath: "/images/soluciones/solucion-02.png",
-    pngLabel: "Gráfica PNG · Inteligencia de Datos",
+    pngLabel: "Inteligencia de Datos",
     icon: BarChart2,
   },
   {
@@ -79,8 +77,7 @@ const SOLUTIONS: SolutionItem[] = [
       "Sincronización automática de stock entre depósitos y tiendas web.",
       "Eliminación de la carga manual y los errores de tipeo en precios.",
     ],
-    pngPath: "/images/soluciones/solucion-03.png",
-    pngLabel: "Gráfica PNG · Automatización de Procesos",
+    pngLabel: "Automatización de Procesos",
     icon: Workflow,
   },
   {
@@ -96,8 +93,7 @@ const SOLUTIONS: SolutionItem[] = [
       "Catálogo estructurado con buscador rápido y filtros por rubro.",
       "Canal de cotizaciones conectado directo a su WhatsApp o correo.",
     ],
-    pngPath: "/images/soluciones/solucion-04.png",
-    pngLabel: "Gráfica PNG · Plataforma Web",
+    pngLabel: "Plataforma Web",
     icon: Globe,
   },
 ];

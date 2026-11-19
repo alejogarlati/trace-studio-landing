@@ -4,7 +4,7 @@ import { useState } from "react";
 import { ImageIcon } from "lucide-react";
 
 interface PngSlotProps {
-  src: string;
+  src?: string;
   alt: string;
   resolutionHint?: string;
   aspectClass?: string;
@@ -14,7 +14,6 @@ interface PngSlotProps {
 export default function PngSlot({
   src,
   alt,
-  resolutionHint = "1200 × 800 px · PNG transparente",
   aspectClass = "aspect-[16/10]",
   label,
 }: PngSlotProps) {
@@ -36,7 +35,7 @@ export default function PngSlot({
         aria-hidden="true"
       />
 
-      {!imageError ? (
+      {src && !imageError ? (
         /* eslint-disable-next-line @next/next/no-img-element */
         <img
           src={src}
@@ -45,7 +44,7 @@ export default function PngSlot({
           className="relative z-10 w-full h-full object-contain p-4 sm:p-6 transition-transform duration-500 group-hover:scale-[1.02]"
         />
       ) : (
-        /* Minimal Circular Liquid Glass Placeholder when PNG is not yet in /public */
+        /* Minimal Circular Liquid Glass Placeholder when image is not provided */
         <div className="relative z-10 flex flex-col items-center justify-center text-center p-6 max-w-xs">
           {/* Concentric Circular Halo */}
           <div className="relative flex items-center justify-center w-20 h-20 mb-4">
@@ -62,16 +61,10 @@ export default function PngSlot({
           </div>
 
           {label && (
-            <span className="font-display text-sm font-semibold text-[var(--text-primary)] mb-1">
+            <span className="font-display text-sm font-semibold text-[var(--text-primary)]">
               {label}
             </span>
           )}
-          <code className="text-[11px] font-mono px-3 py-1 rounded-full liquid-pill text-[var(--color-accent-text)] mb-1.5">
-            /public{src}
-          </code>
-          <span className="text-[11px] text-[var(--text-muted)]">
-            {resolutionHint}
-          </span>
         </div>
       )}
     </div>

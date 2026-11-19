@@ -125,10 +125,8 @@ export default function AboutStudio() {
             {/* Right Column: Institutional Visual PNG Slot */}
             <div className="lg:col-span-5">
               <PngSlot
-                src="/images/estudio/trace-studio.png"
                 alt="Identidad Visual Trace Studio"
-                label="Gráfica PNG · Identidad Trace Studio"
-                resolutionHint="1000 × 1000 px · PNG transparente"
+                label="Identidad Visual · Trace Studio"
                 aspectClass="aspect-square max-h-[340px]"
               />
             </div>
